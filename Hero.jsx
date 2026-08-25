@@ -12,13 +12,26 @@ export default function Hero() {
     e.preventDefault();
     if (email) {
       try {
+        console.log('Attempting signup for:', email);
         const response = await fetch('/api/signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email })
         });
         
-        const data = await response.json();
+        console.log('Response status:', response.status);
+        console.log('Response headers:', response.headers);
+        
+        const text = await response.text();
+        console.log('Response text:', text);
+        
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch (e) {
+          console.error('Failed to parse JSON:', e);
+          throw new Error('Invalid JSON response: ' + text);
+        }
         
         if (response.ok) {
           setIsSubmitted(true);
