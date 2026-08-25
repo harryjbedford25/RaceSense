@@ -13,6 +13,8 @@ export default function Hero() {
     if (email) {
       try {
         console.log('Attempting signup for:', email);
+        console.log('Current URL:', window.location.href);
+        
         const response = await fetch('/api/signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -20,10 +22,24 @@ export default function Hero() {
         });
         
         console.log('Response status:', response.status);
-        console.log('Response headers:', response.headers);
+        console.log('Response ok:', response.ok);
         
         const text = await response.text();
-        console.log('Response text:', text);
+        console.log('Response text length:', text.length);
+        console.log('Response text:', text || '(empty response)');
+        
+        // Handle empty response
+        if (!text || text.trim() === '') {
+          if (response.ok) {
+            console.log('Empty response but status OK, treating as success');
+            setIsSubmitted(true);
+            setTimeout(() => setIsSubmitted(false), 3000);
+            setEmail("");
+            return;
+          } else {
+            throw new Error('Empty response with status: ' + response.status);
+          }
+        }
         
         let data;
         try {
