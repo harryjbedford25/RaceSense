@@ -11,7 +11,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://racesense.pages.dev',
+        target: 'https://racesense.info',
         changeOrigin: true,
         secure: true,
         configure: (proxy, options) => {
