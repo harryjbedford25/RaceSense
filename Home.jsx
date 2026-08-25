@@ -1,0 +1,20 @@
+import React from "react";
+import Nav from "@/Nav";
+import Hero from "@/Hero";
+import FeatureStrip from "@/FeatureStrip";
+import About from "@/About";
+import PitWall from "@/PitWall";
+import Footer from "@/Footer";
+
+export default function Home() {
+  return (
+    <div className="bg-[#0A0A0C] min-h-screen scroll-smooth">
+      <Nav />
+      <Hero />
+      <FeatureStrip />
+      <About />
+      <PitWall />
+      <Footer />
+    </div>
+  );
+}
