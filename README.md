@@ -1,4 +1,4 @@
-# Site1 Project
+# RaceSense Project
 
 A React application built with Vite.
 
