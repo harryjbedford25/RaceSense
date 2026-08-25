@@ -8,26 +8,6 @@ export default defineConfig({
   plugins: [
     react(),
   ],
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://racesense.info',
-        changeOrigin: true,
-        secure: true,
-        configure: (proxy, options) => {
-          proxy.on('error', (err, req, res) => {
-            console.log('proxy error', err);
-          });
-          proxy.on('proxyReq', (proxyReq, req, res) => {
-            console.log('proxying request to:', options.target + req.url);
-          });
-          proxy.on('proxyRes', (proxyRes, req, res) => {
-            console.log('proxy response status:', proxyRes.statusCode);
-          });
-        }
-      }
-    }
-  },
   resolve: {
     alias: {
       '@': resolve(__dirname, './'),
