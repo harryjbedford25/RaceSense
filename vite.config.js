@@ -8,6 +8,15 @@ export default defineConfig({
   plugins: [
     react(),
   ],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://racesense.pages.dev',
+        changeOrigin: true,
+        secure: true
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, './'),
