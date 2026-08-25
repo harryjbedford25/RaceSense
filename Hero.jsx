@@ -12,7 +12,7 @@ export default function Hero() {
         src={KART}
         alt="Kart racer on the grid at golden hour"
         className="absolute inset-0 w-full h-full object-cover opacity-60"
-        style={{ objectPosition: 'center 10%' }}
+        style={{ objectPosition: 'center 35%' }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0C] via-[#0A0A0C]/70 to-[#0A0A0C]/40" />
 
