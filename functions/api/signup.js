@@ -17,6 +17,20 @@ const EMAILOCTOPUS_LIST_ID = '6829a614-a08e-11f1-a99b-a1d0611d2415';
 // const BREVO_LIST_ID = 'your-brevo-list-id';
 
 export async function onRequestPost(context) {
+  // Add CORS headers
+  const corsHeaders = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  };
+
+  // Handle preflight requests
+  if (context.request.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 204,
+      headers: corsHeaders
+    });
+  }
   try {
     const { email } = await context.request.json();
     
@@ -24,7 +38,7 @@ export async function onRequestPost(context) {
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return new Response(JSON.stringify({ error: 'Invalid email address' }), {
         status: 400,
-        headers: { 'Content-Type': 'application/json' }
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       });
     }
 
@@ -42,7 +56,7 @@ export async function onRequestPost(context) {
         message: 'Email logged - configure API keys for actual integration' 
       }), {
         status: 200,
-        headers: { 'Content-Type': 'application/json' }
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       });
     }
 
@@ -76,7 +90,7 @@ export async function onRequestPost(context) {
       if (response.ok) {
         return new Response(JSON.stringify({ success: true }), {
           status: 200,
-          headers: { 'Content-Type': 'application/json' }
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         });
       } else {
         return new Response(JSON.stringify({ 
@@ -84,7 +98,7 @@ export async function onRequestPost(context) {
           details: responseData
         }), {
           status: response.status,
-          headers: { 'Content-Type': 'application/json' }
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         });
       }
     }
@@ -95,7 +109,7 @@ export async function onRequestPost(context) {
     console.error('Signup error:', error);
     return new Response(JSON.stringify({ error: 'Internal server error' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' }
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     });
   }
 }
