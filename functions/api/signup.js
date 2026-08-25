@@ -3,8 +3,8 @@
 
 // Option 1: EmailOctopus (Recommended - Free: 2,500 subscribers)
 const EMAIL_SERVICE = 'emailoctopus';
-const EMAILOCTOPUS_API_KEY = eo_9db6ca29e3f6db168a41ea41c3c988002354ef94ac9a6bf6fe08d358224d99c1;
-const EMAILOCTOPUS_LIST_ID = 6829a614-a08e-11f1-a99b-a1d0611d2415;
+const EMAILOCTOPUS_API_KEY = 'eo_9db6ca29e3f6db168a41ea41c3c988002354ef94ac9a6bf6fe08d358224d99c1';
+const EMAILOCTOPUS_LIST_ID = '6829a614-a08e-11f1-a99b-a1d0611d2415';
 
 // Option 2: MailerLite (Free: 1,000 subscribers)
 // const EMAIL_SERVICE = 'mailerlite';

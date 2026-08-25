@@ -26,17 +26,11 @@ export default function Hero() {
           setEmail("");
         } else {
           console.error('Signup failed:', data.error);
-          // Still show success for demo purposes if API isn't configured
-          setIsSubmitted(true);
-          setTimeout(() => setIsSubmitted(false), 3000);
-          setEmail("");
+          alert('Signup failed: ' + (data.error || 'Unknown error'));
         }
       } catch (error) {
         console.error('Signup error:', error);
-        // Show success for demo purposes
-        setIsSubmitted(true);
-        setTimeout(() => setIsSubmitted(false), 3000);
-        setEmail("");
+        alert('Signup error: ' + error.message);
       }
     }
   };
