@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -8,10 +9,10 @@ export default function Footer() {
           RaceSense
         </span>
         <nav className="flex gap-8 font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93]">
-          <a href="#top" className="hover:text-[#D2FF00] transition-colors">Overview</a>
-          <a href="#about" className="hover:text-[#D2FF00] transition-colors">About</a>
-          <a href="#grid" className="hover:text-[#D2FF00] transition-colors">Launch</a>
-          <a href="/legal" className="hover:text-[#D2FF00] transition-colors">Legal</a>
+          <Link to="/" className="hover:text-[#D2FF00] transition-colors">Overview</Link>
+          <Link to="/#about" className="hover:text-[#D2FF00] transition-colors">About</Link>
+          <Link to="/#grid" className="hover:text-[#D2FF00] transition-colors">Launch</Link>
+          <Link to="/legal" className="hover:text-[#D2FF00] transition-colors">Legal</Link>
         </nav>
         <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93]">
           Built trackside - 2026
