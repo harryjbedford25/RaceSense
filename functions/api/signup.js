@@ -48,6 +48,10 @@ export async function onRequestPost(context) {
 
     // EmailOctopus integration
     if (EMAIL_SERVICE === 'emailoctopus') {
+      console.log('Attempting EmailOctopus API call for:', email);
+      console.log('List ID:', EMAILOCTOPUS_LIST_ID);
+      console.log('API Key:', EMAILOCTOPUS_API_KEY.substring(0, 10) + '...');
+      
       const response = await fetch(
         `https://api.emailoctopus.com/api/1.6/lists/${EMAILOCTOPUS_LIST_ID}/contacts`,
         {
@@ -64,15 +68,20 @@ export async function onRequestPost(context) {
         }
       );
 
+      console.log('EmailOctopus response status:', response.status);
+      
+      const responseData = await response.json();
+      console.log('EmailOctopus response data:', responseData);
+
       if (response.ok) {
         return new Response(JSON.stringify({ success: true }), {
           status: 200,
           headers: { 'Content-Type': 'application/json' }
         });
       } else {
-        const error = await response.json();
         return new Response(JSON.stringify({ 
-          error: error.error?.message || 'Failed to subscribe to mailing list' 
+          error: responseData.error?.message || 'Failed to subscribe to mailing list',
+          details: responseData
         }), {
           status: response.status,
           headers: { 'Content-Type': 'application/json' }
