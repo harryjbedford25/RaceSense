@@ -17,26 +17,18 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-[#101012] via-[#101012]/70 to-[#101012]/40" />
 
       <div className="relative max-w-7xl mx-auto px-6 pb-20 md:pb-28 w-full">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="font-mono text-[12px] md:text-[14px] tracking-[0.3em] uppercase text-[#ccff00]"
-        >
-          [ Your race engineer. In your ear. ]
-        </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="mt-6 text-[13vw] md:text-[7vw] leading-[0.9] font-semibold tracking-tight text-[#F4F4F9] max-w-4xl"
+          transition={{ duration: 0.8 }}
+          className="text-[13vw] md:text-[7vw] leading-[0.9] font-semibold tracking-tight text-[#F4F4F9] max-w-4xl"
         >
           Live race<br />callouts.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.25 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
           className="mt-8 max-w-xl text-[#8E8E93] leading-[1.6]"
         >
           RaceSense is a passion project, we decided to build it in 2026. It's a text to speech race engineer that uses third party data, and reads out the data in a contextual way, via headhones or any bluetooth device.
