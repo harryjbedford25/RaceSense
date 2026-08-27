@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import emailjs from '@emailjs/browser';
+
+emailjs.init("SdIwxbCEG1c7rzxSD");
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -9,6 +12,8 @@ export default function Contact() {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -17,12 +22,37 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitError(false);
+
+    try {
+      const result = await emailjs.send(
+        'service_9v51njl',
+        'template_crwqm7y',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        }
+      );
+
+      if (result.text === 'OK') {
+        setIsSubmitted(true);
+        setTimeout(() => setIsSubmitted(false), 3000);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitError(true);
+        setTimeout(() => setSubmitError(false), 3000);
+      }
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setSubmitError(true);
+      setTimeout(() => setSubmitError(false), 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -38,6 +68,11 @@ export default function Contact() {
             <div className="text-center py-12">
               <p className="font-jetbrains text-2xl text-[#ccff00] mb-4">Message Sent!</p>
               <p className="text-[#8E8E93]">We'll get back to you soon.</p>
+            </div>
+          ) : submitError ? (
+            <div className="text-center py-12">
+              <p className="font-jetbrains text-2xl text-red-500 mb-4">Error Sending Message</p>
+              <p className="text-[#8E8E93]">Please try again later.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -89,9 +124,10 @@ export default function Contact() {
               
               <button
                 type="submit"
-                className="w-full font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 hover:bg-white transition-colors"
+                disabled={isSubmitting}
+                className="w-full font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           )}
