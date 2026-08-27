@@ -1,5 +1,6 @@
 import React from "react";
 import { AudioLines, Radio } from "lucide-react";
+import Countdown from "./Countdown";
 
 const FEATURES = [
   { icon: AudioLines, title: "Context Engine", note: "Situational updates" },
@@ -25,6 +26,13 @@ export default function FeatureStrip() {
               </span>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-6">
+            Launching 01/09/26
+          </p>
+          <Countdown />
         </div>
       </div>
     </section>

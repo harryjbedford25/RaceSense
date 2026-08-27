@@ -1,14 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Image } from "@/image";
-import Countdown from "./Countdown";
 
 const KART = "/kmr4.jpg";
 
 export default function Hero() {
 
   return (
-    <section id="top" className="relative min-h-[100svh] flex items-end overflow-hidden pb-8">
+    <section id="top" className="relative min-h-[100svh] flex items-end overflow-hidden">
       <Image
         src={KART}
         alt="Kart racer on the grid at golden hour"
@@ -50,15 +49,6 @@ export default function Hero() {
             About
           </a>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-8"
-        >
-          <Countdown />
-        </motion.div>
       </div>
     </section>
   );
