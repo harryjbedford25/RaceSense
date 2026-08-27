@@ -13,15 +13,16 @@ export default function Nav() {
         </Link>
         <nav className="hidden md:flex items-center gap-10 font-mono text-[12px] tracking-[0.2em] uppercase text-[#8E8E93]">
           <Link to="/" className="hover:text-[#ccff00] transition-colors">Overview</Link>
-          <Link to="/#about" className="hover:text-[#ccff00] transition-colors">About</Link>
-          <Link to="/#contact" className="hover:text-[#ccff00] transition-colors">Contact</Link>
-          <Link to="/#grid" className="hover:text-[#ccff00] transition-colors">Join the Grid</Link>
+          <Link to="/about" className="hover:text-[#ccff00] transition-colors">About</Link>
+          <Link to="/social" className="hover:text-[#ccff00] transition-colors">Social</Link>
+          <Link to="/updates" className="hover:text-[#ccff00] transition-colors">Updates</Link>
+          <Link to="/contact" className="hover:text-[#ccff00] transition-colors">Contact</Link>
         </nav>
         <Link
           to="/#grid"
           className="font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-4 py-2 hover:bg-white transition-colors"
         >
-          Coming Soon
+          Join the Grid
         </Link>
       </div>
     </header>
