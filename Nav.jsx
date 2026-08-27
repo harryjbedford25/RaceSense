@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import Logo from "./Logo";
 
 export default function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#101012]/80 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center h-full">
-          <Logo />
+          <img 
+            src="/[RACESENSE].jpg" 
+            alt="RaceSense" 
+            className="h-8 w-auto"
+          />
         </Link>
         <nav className="hidden md:flex items-center gap-10 font-mono text-[12px] tracking-[0.2em] uppercase text-[#8E8E93]">
           <Link to="/" className="hover:text-[#ccff00] transition-colors">Overview</Link>
