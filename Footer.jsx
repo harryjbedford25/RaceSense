@@ -12,6 +12,7 @@ export default function Footer() {
         <nav className="flex gap-8 font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93]">
           <Link to="/" className="hover:text-[#ccff00] transition-colors">Overview</Link>
           <Link to="/#about" className="hover:text-[#ccff00] transition-colors">About</Link>
+          <Link to="/#contact" className="hover:text-[#ccff00] transition-colors">Contact</Link>
           <Link to="/#grid" className="hover:text-[#ccff00] transition-colors">Launch</Link>
           <Link to="/legal" className="hover:text-[#ccff00] transition-colors">Legal</Link>
         </nav>

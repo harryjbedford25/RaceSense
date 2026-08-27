@@ -14,6 +14,7 @@ export default function Nav() {
         <nav className="hidden md:flex items-center gap-10 font-mono text-[12px] tracking-[0.2em] uppercase text-[#8E8E93]">
           <Link to="/" className="hover:text-[#ccff00] transition-colors">Overview</Link>
           <Link to="/#about" className="hover:text-[#ccff00] transition-colors">About</Link>
+          <Link to="/#contact" className="hover:text-[#ccff00] transition-colors">Contact</Link>
           <Link to="/#grid" className="hover:text-[#ccff00] transition-colors">Join the Grid</Link>
         </nav>
         <Link

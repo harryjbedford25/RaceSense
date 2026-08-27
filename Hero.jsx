@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Image } from "@/image";
+import Countdown from "./Countdown";
 
 const KART = "/kmr4.jpg";
 
@@ -49,6 +50,18 @@ export default function Hero() {
             About
           </a>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-16"
+        >
+          <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-6 text-center">
+            Launching 01/09/26
+          </p>
+          <Countdown />
+        </motion.div>
       </div>
     </section>
   );
