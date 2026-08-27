@@ -8,7 +8,7 @@ const KART = "/kmr4.jpg";
 export default function Hero() {
 
   return (
-    <section id="top" className="relative min-h-[100svh] flex items-end overflow-hidden">
+    <section id="top" className="relative min-h-[100svh] flex items-end overflow-hidden pb-8">
       <Image
         src={KART}
         alt="Kart racer on the grid at golden hour"
@@ -55,11 +55,8 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-16"
+          className="mt-8"
         >
-          <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-6 text-center">
-            Launching 01/09/26
-          </p>
           <Countdown />
         </motion.div>
       </div>
