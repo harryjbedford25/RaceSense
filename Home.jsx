@@ -8,7 +8,7 @@ import Footer from "@/Footer";
 
 export default function Home() {
   return (
-    <div className="bg-[#0A0A0C] min-h-screen scroll-smooth">
+    <div className="bg-[#101012] min-h-screen scroll-smooth">
       <Nav />
       <Hero />
       <FeatureStrip />

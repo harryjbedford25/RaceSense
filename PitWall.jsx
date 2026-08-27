@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function PitWall() {
   return (
-    <section id="grid" className="relative bg-[#D2FF00] text-black overflow-hidden">
+    <section id="grid" className="relative bg-[#ccff00] text-black overflow-hidden">
       <div className="absolute inset-0 flex items-center opacity-20 select-none pointer-events-none">
         <motion.div
           className="flex whitespace-nowrap font-mono text-[14vw] uppercase tracking-tighter"

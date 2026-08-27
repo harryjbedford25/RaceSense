@@ -5,10 +5,10 @@ import Footer from "./Footer";
 
 export default function Legal() {
   return (
-    <div className="min-h-screen bg-[#0A0A0C] text-[#F4F4F9]">
+    <div className="min-h-screen bg-[#101012] text-[#F4F4F9]">
       <Nav />
       <div className="max-w-4xl mx-auto px-6 py-20 pt-32">
-        <h1 className="font-mono text-[12px] tracking-[0.3em] uppercase text-[#D2FF00] mb-8">
+        <h1 className="font-mono text-[12px] tracking-[0.3em] uppercase text-[#ccff00] mb-8">
           Legal Information
         </h1>
         
@@ -187,7 +187,7 @@ export default function Legal() {
                 <div className="mt-4 space-y-2">
                   <p className="text-[#F4F4F9]">My Race Engineer</p>
                   <p className="text-[#F4F4F9]">Developed by Samuel Williams and Harry Bedford</p>
-                  <p className="text-[#D2FF00]">Email: harryjbedford25@gmail.com</p>
+                  <p className="text-[#ccff00]">Email: harryjbedford25@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -216,7 +216,7 @@ export default function Legal() {
                 <p>
                   For privacy-related enquiries:
                 </p>
-                <p className="text-[#D2FF00]">Email: harryjbedford25@gmail.com</p>
+                <p className="text-[#ccff00]">Email: harryjbedford25@gmail.com</p>
               </div>
 
               <div className="space-y-4">
