@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import Countdown from "./Countdown";
-import { Calendar, CheckCircle, Clock, Zap } from "lucide-react";
+import { CheckCircle, Clock, X, Zap } from "lucide-react";
 
 const PATCH_NOTES = [
   {
@@ -11,9 +11,23 @@ const PATCH_NOTES = [
     changes: [
       "Initial public release",
       "Basic lap time callouts",
-      "Context-aware updates",
-      "Multi-platform support"
+      "Context-aware updates"
     ]
+  }
+];
+
+const SCREENSHOTS = [
+  {
+    src: "/Screenshots/Screenshot_20260828_002932_Race sense.jpg",
+    alt: "RaceSense start screen"
+  },
+  {
+    src: "/Screenshots/Screenshot_20260828_002956_Race sense.jpg",
+    alt: "RaceSense event setup"
+  },
+  {
+    src: "/Screenshots/Screenshot_20260828_003646_Race sense.jpg",
+    alt: "RaceSense session running"
   }
 ];
 
@@ -39,6 +53,35 @@ const FUTURE_UPDATES = [
 ];
 
 export default function Updates() {
+  const [activeShot, setActiveShot] = useState(null);
+  const [canScroll, setCanScroll] = useState(false);
+  const scrollerRef = useRef(null);
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    const update = () => setCanScroll(el.scrollWidth > el.clientWidth + 2);
+    update();
+
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    window.addEventListener("resize", update);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!activeShot) return;
+    const onKey = (event) => {
+      if (event.key === "Escape") setActiveShot(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [activeShot]);
+
   return (
     <div className="bg-[#101012] min-h-screen">
       <Nav />
@@ -92,17 +135,31 @@ export default function Updates() {
             <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-6">
               Screenshots
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white/5 border border-white/10 aspect-video flex items-center justify-center">
-                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93]">
-                  [ Screenshot coming soon ]
-                </p>
+            <div className="relative -mx-6">
+              <div
+                ref={scrollerRef}
+                className="overflow-x-auto overflow-y-hidden px-6 scroll-smooth snap-x snap-mandatory [scrollbar-width:thin] [scrollbar-color:rgba(204,255,0,0.28)_transparent] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#ccff00]/30"
+              >
+                <div className="flex justify-start gap-3 pb-3 w-max">
+                  {SCREENSHOTS.map((shot) => (
+                    <button
+                      key={shot.src}
+                      type="button"
+                      onClick={() => setActiveShot(shot)}
+                      className="group relative shrink-0 snap-start h-[280px] sm:h-[320px] md:h-[360px] bg-white/[0.04] border border-white/10 overflow-hidden text-left transition-colors hover:border-[#ccff00]/40 focus-visible:outline-none focus-visible:border-[#ccff00]"
+                    >
+                      <img
+                        src={shot.src}
+                        alt={shot.alt}
+                        className="h-full w-auto max-w-none object-contain"
+                      />
+                    </button>
+                  ))}
+                </div>
               </div>
-              <div className="bg-white/5 border border-white/10 aspect-video flex items-center justify-center">
-                <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93]">
-                  [ Screenshot coming soon ]
-                </p>
-              </div>
+              {canScroll && (
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#101012] to-transparent" />
+              )}
             </div>
           </div>
 
@@ -130,6 +187,28 @@ export default function Updates() {
         </div>
       </section>
       <Footer />
+
+      {activeShot && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 sm:p-8"
+          onClick={() => setActiveShot(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setActiveShot(null)}
+            className="absolute top-5 right-5 text-[#F4F4F9]/70 hover:text-[#ccff00] transition-colors"
+            aria-label="Close screenshot"
+          >
+            <X className="w-5 h-5" strokeWidth={1.5} />
+          </button>
+          <img
+            src={activeShot.src}
+            alt={activeShot.alt}
+            onClick={(e) => e.stopPropagation()}
+            className="max-h-full max-w-full object-contain border border-white/10"
+          />
+        </div>
+      )}
     </div>
   );
 }
