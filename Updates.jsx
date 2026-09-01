@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import Countdown from "./Countdown";
-import { CheckCircle, Clock, X, Zap } from "lucide-react";
+import { CheckCircle, Clock, X, Zap, Play, Tag, Calendar } from "lucide-react";
 
 const PATCH_NOTES = [
   {
@@ -100,6 +100,70 @@ export default function Updates() {
                 RaceSense launches on September 1st, 2026
               </p>
               <Countdown />
+            </div>
+          </div>
+
+          <div className="mb-16 bg-gradient-to-br from-[#ccff00]/10 to-[#ccff00]/5 border border-[#ccff00]/30 p-8 md:p-12">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Play className="w-6 h-6 text-[#ccff00]" strokeWidth={1.5} />
+              <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ccff00]">
+                Play Store Closed Testing
+              </h2>
+            </div>
+            <div className="text-center space-y-4">
+              <p className="text-[#F4F4F9] text-lg">
+                RaceSense is now available in closed testing on Google Play Store
+              </p>
+              <p className="text-[#8E8E93]">
+                Search for <span className="text-[#ccff00] font-mono">com.racesense.racesense</span> in the Play Store to join early access
+              </p>
+              <div className="bg-white/5 border border-white/10 p-6 max-w-md mx-auto">
+                <p className="text-[#F4F4F9] mb-2">
+                  <span className="text-[#ccff00] font-semibold">12 testers needed</span> for 2-week testing period
+                </p>
+                <p className="text-[#8E8E93] text-sm">
+                  Help shape the future of RaceSense by providing feedback during this critical phase
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-16 bg-white/5 border border-white/10 p-8 md:p-12">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Tag className="w-6 h-6 text-[#ccff00]" strokeWidth={1.5} />
+              <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ccff00]">
+                Limited Time Offer
+              </h2>
+            </div>
+            <div className="text-center space-y-4">
+              <p className="text-[#F4F4F9] text-2xl font-bold">
+                <span className="text-[#ccff00]">99% OFF</span> Launch Special
+              </p>
+              <p className="text-[#8E8E93]">
+                Get RaceSense at an exclusive introductory price for the next 10 days
+              </p>
+              <div className="bg-[#ccff00]/10 border border-[#ccff00]/30 p-4 max-w-md mx-auto">
+                <p className="text-[#ccff00] font-mono text-sm">
+                  Offer expires in 10 days from launch
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-16 bg-white/5 border border-white/10 p-8 md:p-12">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Calendar className="w-6 h-6 text-[#ccff00]" strokeWidth={1.5} />
+              <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ccff00]">
+                Full Rollout Schedule
+              </h2>
+            </div>
+            <div className="text-center">
+              <p className="text-[#F4F4F9] text-3xl font-bold mb-2">
+                September 26, 2026
+              </p>
+              <p className="text-[#8E8E93]">
+                Full public rollout scheduled for late September
+              </p>
             </div>
           </div>
 
