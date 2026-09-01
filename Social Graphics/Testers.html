@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, initial-scale=1.0">
+
+<title>RaceSense — Looking for Testers</title>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        background: #101012;
+        color: #FFFFFF;
+    }
+
+    .post {
+        position: relative;
+        width: 1080px;
+        height: 1350px;
+        padding: 70px;
+        overflow: hidden;
+    }
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    .grid {
+        position: absolute;
+        inset: 0;
+        opacity: 0.035;
+
+        background-image:
+            linear-gradient(#FFFFFF 1px, transparent 1px),
+            linear-gradient(90deg, #FFFFFF 1px, transparent 1px);
+
+        background-size: 54px 54px;
+    }
+
+    .circle {
+        position: absolute;
+        width: 520px;
+        height: 520px;
+
+        right: -310px;
+        top: 230px;
+
+        border: 1px solid #CCFF00;
+        border-radius: 50%;
+
+        opacity: 0.12;
+    }
+
+    .circle::before {
+        content: "";
+
+        position: absolute;
+        inset: 55px;
+
+        border: 1px solid #CCFF00;
+        border-radius: 50%;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .header {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .logo {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-text {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: -1.5px;
+        line-height: 1;
+    }
+
+    .logo-line {
+        width: 100%;
+        height: 4px;
+
+        margin-top: 9px;
+
+        background: #CCFF00;
+    }
+
+    .status {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 15px;
+        font-weight: 500;
+
+        letter-spacing: 1px;
+
+        color: #CCFF00;
+
+        border: 1px solid #CCFF00;
+
+        padding: 10px 14px;
+    }
+
+
+    /* =========================
+       MAIN CONTENT
+    ========================= */
+
+    .content {
+        position: relative;
+        z-index: 2;
+
+        margin-top: 150px;
+    }
+
+    .eyebrow {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 18px;
+        font-weight: 500;
+
+        letter-spacing: 2px;
+
+        color: #CCFF00;
+
+        margin-bottom: 24px;
+    }
+
+    /*
+       ONLY THE TITLE USES
+       THE PRIMARY FONT
+    */
+
+    h1 {
+        font-family: 'Inter', sans-serif;
+        font-size: 96px;
+        line-height: 0.95;
+
+        letter-spacing: -4px;
+
+        font-weight: 600;
+
+        max-width: 900px;
+    }
+
+    h1 span {
+        color: #CCFF00;
+    }
+
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+        max-width: 790px;
+
+        margin-top: 42px;
+
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 22px;
+        line-height: 1.5;
+
+        font-weight: 400;
+
+        color: #D5D5D7;
+    }
+
+    .intro strong {
+        font-weight: 600;
+        color: #FFFFFF;
+    }
+
+
+    /* =========================
+       QUESTION
+    ========================= */
+
+    .question {
+        position: relative;
+        z-index: 2;
+
+        margin-top: 65px;
+
+        max-width: 900px;
+
+        padding: 30px 34px;
+
+        background: #171719;
+
+        border-left: 5px solid #CCFF00;
+    }
+
+    .question-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 15px;
+        font-weight: 500;
+
+        letter-spacing: 1.5px;
+
+        color: #CCFF00;
+
+        margin-bottom: 15px;
+    }
+
+    .question-text {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 23px;
+        line-height: 1.45;
+
+        font-weight: 500;
+
+        color: #FFFFFF;
+    }
+
+
+    /* =========================
+       REQUIREMENTS
+    ========================= */
+
+    .requirements {
+        position: relative;
+        z-index: 2;
+
+        margin-top: 32px;
+
+        display: flex;
+        gap: 32px;
+    }
+
+    .requirement {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        font-weight: 500;
+
+        color: #96969A;
+    }
+
+    .dot {
+        width: 7px;
+        height: 7px;
+
+        background: #CCFF00;
+
+        flex-shrink: 0;
+    }
+
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+        position: absolute;
+        z-index: 3;
+
+        left: 70px;
+        right: 70px;
+        bottom: 105px;
+
+        padding: 27px 32px;
+
+        background: #CCFF00;
+        color: #101012;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .cta-title {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 22px;
+        font-weight: 700;
+
+        letter-spacing: -0.5px;
+    }
+
+    .cta-sub {
+        margin-top: 7px;
+
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        font-weight: 500;
+
+        letter-spacing: 0.5px;
+    }
+
+    .arrow {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 40px;
+        font-weight: 500;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+        position: absolute;
+        z-index: 3;
+
+        bottom: 48px;
+
+        left: 70px;
+        right: 70px;
+
+        display: flex;
+        justify-content: space-between;
+
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        font-weight: 500;
+
+        color: #66666A;
+    }
+
+    .footer span {
+        color: #929296;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="post">
+
+    <div class="grid"></div>
+    <div class="circle"></div>
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="logo">
+
+            <div class="logo-text">
+                [RACESENSE]
+            </div>
+
+            <div class="logo-line"></div>
+
+        </div>
+
+        <div class="status">
+            EARLY ACCESS
+        </div>
+
+    </div>
+
+
+    <!-- MAIN -->
+
+    <div class="content">
+
+        <div class="eyebrow">
+            // CALLING ALL DRIVERS
+        </div>
+
+
+        <!-- PRIMARY FONT ONLY HERE -->
+
+        <h1>
+            LOOKING<br>
+            FOR <span>TESTERS.</span>
+        </h1>
+
+
+        <!-- EVERYTHING BELOW = JETBRAINS MONO -->
+
+        <div class="intro">
+
+            RaceSense is entering early access,
+            and we want to encourage creators to test it for us!
+
+            <br><br>
+
+            <strong>Drop us a DM.</strong>
+
+        </div>
+
+
+        <div class="question">
+
+            <div class="question-label">
+                ARE YOU RACING?
+            </div>
+
+            <div class="question-text">
+                Are you competing in an organised
+                championship event in the next week or two?
+            </div>
+
+        </div>
+
+
+        <div class="requirements">
+
+            <div class="requirement">
+                <div class="dot"></div>
+                REAL RACING
+            </div>
+
+            <div class="requirement">
+                <div class="dot"></div>
+                EARLY ACCESS
+            </div>
+
+            <div class="requirement">
+                <div class="dot"></div>
+                FREE TO TEST
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CTA -->
+
+    <div class="cta">
+
+        <div>
+
+            <div class="cta-title">
+                GET FREE EARLY ACCESS
+            </div>
+
+            <div class="cta-sub">
+                DM @RACESENSE TO JOIN THE TESTING GRID
+            </div>
+
+        </div>
+
+        <div class="arrow">
+            →
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        <span>
+            [racesense]
+        </span>
+
+        <span>
+            RACESENSE.INFO
+        </span>
+
+    </div>
+
+</div>
+
+</body>
+</html>

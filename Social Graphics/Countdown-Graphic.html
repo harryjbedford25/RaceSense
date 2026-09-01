@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, initial-scale=1.0">
+
+<title>RaceSense Countdown</title>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@500;600&display=swap');
+
+    :root {
+        --black: #101012;
+        --lime: #ccff00;
+        --white: #ffffff;
+        --muted: #858589;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        width: 1080px;
+        height: 1350px;
+        background: var(--black);
+        color: var(--white);
+        font-family: "Inter", sans-serif;
+        overflow: hidden;
+    }
+
+    .post {
+        width: 1080px;
+        height: 1350px;
+        padding: 82px 86px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* Subtle technical grid */
+
+    .grid {
+        position: absolute;
+        inset: 0;
+        opacity: 0.045;
+        pointer-events: none;
+
+        background-image:
+            linear-gradient(
+                rgba(255,255,255,0.8) 1px,
+                transparent 1px
+            ),
+            linear-gradient(
+                90deg,
+                rgba(255,255,255,0.8) 1px,
+                transparent 1px
+            );
+
+        background-size: 90px 90px;
+    }
+
+    /* Accent line */
+
+    .accent {
+        position: absolute;
+        left: 86px;
+        top: 82px;
+        width: 72px;
+        height: 5px;
+        background: var(--lime);
+    }
+
+    /* Header */
+
+    .header {
+        position: relative;
+        z-index: 2;
+    }
+
+    .eyebrow {
+        margin-top: 30px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 21px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+    }
+
+    /* Main countdown */
+
+    .main {
+        position: relative;
+        z-index: 2;
+        margin-top: -80px;
+    }
+
+    .label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 22px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--lime);
+        margin-bottom: 28px;
+    }
+
+    .number {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 310px;
+        line-height: 0.82;
+        letter-spacing: -0.075em;
+        color: var(--white);
+    }
+
+    .days {
+        margin-top: 38px;
+        font-size: 58px;
+        line-height: 1;
+        font-weight: 600;
+        letter-spacing: -0.035em;
+    }
+
+    /* Bottom information */
+
+    .bottom {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-top: 1px solid rgba(255,255,255,0.16);
+        padding-top: 24px;
+    }
+
+    .release {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 19px;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+    }
+
+    .date {
+        margin-top: 8px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 25px;
+        color: var(--white);
+        letter-spacing: 0.05em;
+    }
+
+    .status {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        color: var(--lime);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    /* Corner detail */
+
+    .corner {
+        position: absolute;
+        right: 86px;
+        top: 82px;
+        width: 12px;
+        height: 12px;
+        border-top: 2px solid var(--lime);
+        border-right: 2px solid var(--lime);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="post" id="countdown">
+
+    <div class="grid"></div>
+
+    <div class="accent"></div>
+    <div class="corner"></div>
+
+    <header class="header">
+        <div class="eyebrow">RaceSense / Release Countdown</div>
+    </header>
+
+    <main class="main">
+
+        <div class="label">Release in</div>
+
+        <div class="number" id="number">03</div>
+
+        <div class="days" id="days">DAYS</div>
+
+    </main>
+
+    <footer class="bottom">
+
+        <div>
+            <div class="release">RELEASE DATE</div>
+            <div class="date">01.09.26</div>
+        </div>
+
+        <div class="status">
+            PREPARING FOR RELEASE
+        </div>
+
+    </footer>
+
+</div>
+
+<script>
+    /*
+        Change this number for each post:
+
+        3 = Three days
+        2 = Two days
+        1 = One day
+    */
+
+    const countdownDays = 1;
+
+    const number = document.getElementById("number");
+    const days = document.getElementById("days");
+
+    number.textContent = String(countdownDays).padStart(2, "0");
+
+    days.textContent =
+        countdownDays === 1
+            ? "DAY"
+            : "DAYS";
+</script>
+
+</body>
+</html>

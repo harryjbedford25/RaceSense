@@ -23,7 +23,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-[13vw] md:text-[7vw] leading-[0.9] font-semibold tracking-tight text-[#F4F4F9] max-w-4xl"
         >
-          Virtual Race<br />Engineer.
+          Lap times in<br />your ear.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
