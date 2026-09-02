@@ -31,7 +31,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="mt-8 max-w-xl text-[#8E8E93] leading-[1.6]"
         >
-          RaceSense is a passion project, we decided to build it in 2026. It's a text to speech race engineer that uses third party data, and reads out the data in a contextual way, via headhones or any bluetooth device.
+          Most racers dont realise when they're improving. Endless laps with no idea what line was one, or two tenths faster. Racesense aims to change this. Our virtual race engineer gives real-time in ear callouts about laptimes and gaps. 
         </motion.p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <a href="/#grid" className="font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 hover:bg-white transition-colors">
