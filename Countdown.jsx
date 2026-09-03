@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState({
@@ -9,7 +10,7 @@ export default function Countdown() {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2026-09-01T00:00:00').getTime();
+    const targetDate = new Date('2026-09-17T00:00:00').getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -32,23 +33,58 @@ export default function Countdown() {
     return () => clearInterval(interval);
   }, []);
 
-  const TimeUnit = ({ value, label }) => (
-    <div className="flex flex-col items-center">
-      <div className="font-jetbrains text-4xl md:text-6xl font-bold text-[#ccff00]">
-        {String(value).padStart(2, '0')}
-      </div>
-      <div className="font-jetbrains text-[10px] md:text-[12px] tracking-[0.2em] uppercase text-[#8E8E93] mt-2">
-        {label}
-      </div>
-    </div>
-  );
-
   return (
-    <div className="flex gap-4 md:gap-8">
-      <TimeUnit value={timeLeft.days} label="Days" />
-      <TimeUnit value={timeLeft.hours} label="Hours" />
-      <TimeUnit value={timeLeft.minutes} label="Minutes" />
-      <TimeUnit value={timeLeft.seconds} label="Seconds" />
+    <div className="relative bg-[#ccff00] text-black overflow-hidden">
+      <div className="absolute inset-0 flex items-center opacity-20 select-none pointer-events-none">
+        <motion.div
+          className="flex whitespace-nowrap font-mono text-[14vw] uppercase tracking-tighter"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+        >
+          <span>Countdown · Countdown · Countdown · Countdown · </span>
+          <span>Countdown · Countdown · Countdown · Countdown · </span>
+        </motion.div>
+      </div>
+
+      <div className="relative max-w-4xl mx-auto px-6 py-28 md:py-36 text-center">
+        <div className="flex justify-center items-center gap-4 md:gap-8">
+          <div className="text-center">
+            <div className="font-jetbrains text-6xl md:text-8xl font-bold">
+              {String(timeLeft.days).padStart(2, '0')}
+            </div>
+            <div className="font-jetbrains text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-2">
+              Days
+            </div>
+          </div>
+          <div className="text-6xl md:text-8xl font-bold">:</div>
+          <div className="text-center">
+            <div className="font-jetbrains text-6xl md:text-8xl font-bold">
+              {String(timeLeft.hours).padStart(2, '0')}
+            </div>
+            <div className="font-jetbrains text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-2">
+              Hours
+            </div>
+          </div>
+          <div className="text-6xl md:text-8xl font-bold">:</div>
+          <div className="text-center">
+            <div className="font-jetbrains text-6xl md:text-8xl font-bold">
+              {String(timeLeft.minutes).padStart(2, '0')}
+            </div>
+            <div className="font-jetbrains text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-2">
+              Minutes
+            </div>
+          </div>
+          <div className="text-6xl md:text-8xl font-bold">:</div>
+          <div className="text-center">
+            <div className="font-jetbrains text-6xl md:text-8xl font-bold">
+              {String(timeLeft.seconds).padStart(2, '0')}
+            </div>
+            <div className="font-jetbrains text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-2">
+              Seconds
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

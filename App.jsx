@@ -8,9 +8,7 @@ import UserNotRegisteredError from '@/UserNotRegisteredError';
 import ScrollToTop from './ScrollToTop';
 import Home from './Home';
 import Legal from './Legal';
-import Contact from './Contact';
 import About from './About';
-import Social from './Social';
 import Updates from './Updates';
 
 const AuthenticatedApp = () => {
@@ -43,8 +41,6 @@ const AuthenticatedApp = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/social" element={<Social />} />
         <Route path="/updates" element={<Updates />} />
         <Route path="/legal" element={<Legal />} />
         <Route path="*" element={<PageNotFound />} />

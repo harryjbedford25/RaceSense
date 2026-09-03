@@ -43,6 +43,14 @@ export default function Hero() {
           <a href="/updates" className="font-mono text-[12px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-7 py-4 hover:border-[#ccff00] hover:text-[#ccff00] transition-colors">
             Updates
           </a>
+          <a
+            href="https://instagram.com/Race.sense.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[12px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-7 py-4 hover:border-[#ccff00] hover:text-[#ccff00] transition-colors"
+          >
+            Instagram
+          </a>
         </div>
       </div>
     </section>
