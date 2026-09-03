@@ -150,19 +150,19 @@ export default function Updates() {
             <div className="flex items-center justify-center gap-3 mb-6">
               <Tag className="w-6 h-6 text-[#ccff00]" strokeWidth={1.5} />
               <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ccff00]">
-                Limited Time Offer
+                Partner Promotion
               </h2>
             </div>
             <div className="text-center space-y-4">
               <p className="text-[#F4F4F9] text-2xl font-bold">
-                <span className="text-[#ccff00]">99% OFF</span> Launch Special
+                <span className="text-[#ccff00]">10% OFF</span> For Partners
               </p>
               <p className="text-[#8E8E93]">
-                Get RaceSense at an exclusive introductory price for the next 10 days
+                Interested in partnership opportunities? Get exclusive access to our partner program with special pricing.
               </p>
               <div className="bg-[#ccff00]/10 border border-[#ccff00]/30 p-4 max-w-md mx-auto">
                 <p className="text-[#ccff00] font-mono text-sm">
-                  Offer expires in 10 days from launch
+                  Use code: <span className="font-bold">PARTNER10</span>
                 </p>
               </div>
             </div>
