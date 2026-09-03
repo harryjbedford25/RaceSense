@@ -4,18 +4,18 @@ import Footer from "./Footer";
 
 const TESTIMONIALS = [
   {
-    name: "Alex Chen",
-    role: "Kart Racer",
-    content: "Finally, something that tells me what's happening without taking my eyes off the track. The context engine is exactly what I needed."
+    name: "Sam Willy",
+    role: "Developer",
+    content: "Just make up some fake ones"
   },
   {
-    name: "Sarah Mitchell",
-    role: "Sim Racing Enthusiast",
-    content: "The lap time callouts have completely changed how I practice. I can focus on driving while still getting real-time feedback."
+    name: "Harry Bedford",
+    role: "CEO",
+    content: "I dont have time for this, please just buy it already"
   },
   {
-    name: "Marcus Johnson",
-    role: "Amateur Racer",
+    name: "Ewan 'the king' Merino",
+    role: "pocket puh",
     content: "RaceSense feels like having a professional race engineer in your ear. The situational awareness it provides is invaluable."
   }
 ];
@@ -54,10 +54,7 @@ export default function About() {
             <div className="grid md:grid-cols-3 gap-6">
               {TESTIMONIALS.map((testimonial, index) => (
                 <div key={index} className="bg-white/5 border border-white/10 p-6">
-                  <p className="text-[#F4F4F9] leading-relaxed mb-6">
-                    "{testimonial.content}"
-                  </p>
-                  <div>
+                  <div className="mb-6">
                     <p className="font-jetbrains text-[16px] font-semibold text-[#F4F4F9]">
                       {testimonial.name}
                     </p>
@@ -65,6 +62,9 @@ export default function About() {
                       {testimonial.role}
                     </p>
                   </div>
+                  <p className="text-[#F4F4F9] leading-relaxed">
+                    "{testimonial.content}"
+                  </p>
                 </div>
               ))}
             </div>
