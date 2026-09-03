@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import Countdown from "./Countdown";
-import { CheckCircle, Clock, X, Zap, Play, Tag, Calendar } from "lucide-react";
+import { CheckCircle, Clock, X, Zap, Play, Tag } from "lucide-react";
 
 const PATCH_NOTES = [
   {
@@ -148,21 +148,21 @@ export default function Updates() {
 
           <div className="mb-16 bg-white/5 border border-white/10 p-8 md:p-12">
             <div className="flex items-center justify-center gap-3 mb-6">
-              <Tag className="w-6 h-6 text-[#ccff00]" strokeWidth={1.5} />
+              <Zap className="w-6 h-6 text-[#ccff00]" strokeWidth={1.5} />
               <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ccff00]">
-                Partner Promotion
+                Something's Coming
               </h2>
             </div>
             <div className="text-center space-y-4">
               <p className="text-[#F4F4F9] text-2xl font-bold">
-                <span className="text-[#ccff00]">10% OFF</span> For Partners
+                <span className="text-[#ccff00]">Big Things</span> To Come
               </p>
               <p className="text-[#8E8E93]">
-                Interested in partnership opportunities? Get exclusive access to our partner program with special pricing.
+                Stay tuned. Something exciting is on the horizon.
               </p>
               <div className="bg-[#ccff00]/10 border border-[#ccff00]/30 p-4 max-w-md mx-auto">
                 <p className="text-[#ccff00] font-mono text-sm">
-                  Use code: <span className="font-bold">PARTNER10</span>
+                  Announcement coming soon
                 </p>
               </div>
             </div>
