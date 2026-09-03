@@ -34,6 +34,22 @@ const SOCIAL_LINKS = [
   }
 ];
 
+const INSTAGRAM_POSTS = [
+  {
+    // Add your Instagram post URLs here in the format: "https://www.instagram.com/p/POST_ID/"
+    url: "https://www.instagram.com/p/Dc0Q2qyDYNZ/?img_index=1",
+    caption: "Get in touch!"
+  },
+  {
+    url: "https://www.instagram.com/p/DcyGsgDDV-o/?img_index=1",
+    caption: "Early Access Updates!"
+  },
+  {
+    url: "https://www.instagram.com/p/DcyazjKjQV-/?img_index=1",
+    caption: "Web Version Coming Soon!"
+  }
+];
+
 const ENGAGEMENT_OFFERS = [
   {
     icon: Gift,
@@ -119,6 +135,50 @@ export default function Social() {
                   </a>
                 )
               ))}
+            </div>
+          </div>
+
+          <div className="mb-16">
+            <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-6">
+              Latest from Instagram
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {INSTAGRAM_POSTS.map((post, index) => {
+                const postId = post.url?.split('/p/')?.[1]?.split('/')?.[0];
+                return (
+                  <div key={index} className="bg-white/5 border border-white/10 p-4">
+                    {postId ? (
+                      <iframe
+                        src={`https://www.instagram.com/${postId}/embed`}
+                        className="w-full aspect-square"
+                        frameBorder="0"
+                        scrolling="no"
+                        allowtransparency="true"
+                      />
+                    ) : (
+                      <div className="aspect-square bg-white/5 flex flex-col items-center justify-center border border-dashed border-white/20">
+                        <Instagram className="w-12 h-12 text-[#8E8E93] mb-3" strokeWidth={1} />
+                        <p className="text-[#8E8E93] text-xs text-center px-4">
+                          Add Instagram post URL to display embed
+                        </p>
+                      </div>
+                    )}
+                    <p className="text-[#8E8E93] text-sm mt-4 h-10 overflow-hidden">
+                      {post.caption}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-4 text-center">
+              <a
+                href="https://instagram.com/Race.sense.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#ccff00] hover:text-white transition-colors text-sm"
+              >
+                Follow @Race.sense.app on Instagram →
+              </a>
             </div>
           </div>
 

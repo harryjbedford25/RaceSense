@@ -1,60 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
-import emailjs from '@emailjs/browser';
+import { Instagram, Mail, MessageCircle } from "lucide-react";
 
-emailjs.init("SdIwxbCEG1c7rzxSD");
+const CONTACT_METHODS = [
+  {
+    icon: Instagram,
+    title: "Instagram",
+    handle: "@Race.sense.app",
+    link: "https://instagram.com/Race.sense.app",
+    description: "Follow us for updates and behind-the-scenes content"
+  },
+  {
+    icon: MessageCircle,
+    title: "Social Media",
+    handle: "Check our Social page",
+    link: "/social",
+    description: "Connect with us on various platforms"
+  }
+];
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError(false);
-
-    try {
-      const result = await emailjs.send(
-        'service_9v51njl',
-        'template_crwqm7y',
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        }
-      );
-
-      if (result.text === 'OK') {
-        setIsSubmitted(true);
-        setTimeout(() => setIsSubmitted(false), 3000);
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        setSubmitError(true);
-        setTimeout(() => setSubmitError(false), 3000);
-      }
-    } catch (error) {
-      console.error('EmailJS error:', error);
-      setSubmitError(true);
-      setTimeout(() => setSubmitError(false), 3000);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="bg-[#101012] min-h-screen">
       <Nav />
@@ -64,73 +30,45 @@ export default function Contact() {
             Get in Touch
           </h1>
           
-          {isSubmitted ? (
-            <div className="text-center py-12">
-              <p className="font-jetbrains text-2xl text-[#ccff00] mb-4">Message Sent!</p>
-              <p className="text-[#8E8E93]">We'll get back to you soon.</p>
-            </div>
-          ) : submitError ? (
-            <div className="text-center py-12">
-              <p className="font-jetbrains text-2xl text-red-500 mb-4">Error Sending Message</p>
-              <p className="text-[#8E8E93]">Please try again later.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-white/5 border border-white/20 text-[#F4F4F9] px-4 py-3 font-mono text-[12px] tracking-[0.1em] uppercase placeholder:text-[#8E8E93]/50 focus:outline-none focus:border-[#ccff00] transition-colors"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label className="block font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-white/5 border border-white/20 text-[#F4F4F9] px-4 py-3 font-mono text-[12px] tracking-[0.1em] uppercase placeholder:text-[#8E8E93]/50 focus:outline-none focus:border-[#ccff00] transition-colors"
-                    placeholder="your@email.com"
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label className="block font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-2">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full bg-white/5 border border-white/20 text-[#F4F4F9] px-4 py-3 font-mono text-[12px] tracking-[0.1em] uppercase placeholder:text-[#8E8E93]/50 focus:outline-none focus:border-[#ccff00] transition-colors resize-none"
-                  placeholder="Your message..."
-                />
-              </div>
-              
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          <div className="mb-8">
+            <p className="text-[#8E8E93] text-lg mb-4">
+              We'd love to hear from you! Connect with us through our social channels or check out our community page.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {CONTACT_METHODS.map((method) => (
+              <a
+                key={method.title}
+                href={method.link}
+                className="block bg-white/5 border border-white/10 p-6 hover:border-[#ccff00]/50 transition-colors group"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-            </form>
-          )}
+                <div className="flex items-start gap-4">
+                  <method.icon className="w-6 h-6 text-[#ccff00] group-hover:text-[#F4F4F9] transition-colors" strokeWidth={1.5} />
+                  <div className="flex-1">
+                    <h3 className="font-jetbrains text-[16px] font-semibold text-[#F4F4F9] mb-1">
+                      {method.title}
+                    </h3>
+                    <p className="font-mono text-[12px] tracking-[0.15em] uppercase text-[#ccff00] mb-2">
+                      {method.handle}
+                    </p>
+                    <p className="text-[#8E8E93] text-sm">
+                      {method.description}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-12 bg-white/5 border border-white/10 p-6">
+            <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-4">
+              Response Time
+            </h2>
+            <p className="text-[#8E8E93]">
+              We typically respond to social media messages within 24-48 hours. For urgent matters, please reach out through our Instagram account.
+            </p>
+          </div>
         </div>
       </section>
       <Footer />
