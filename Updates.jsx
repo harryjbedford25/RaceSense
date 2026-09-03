@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import Countdown from "./Countdown";
-import { CheckCircle, Clock, X, Zap, Play, Tag, Calendar, Instagram } from "lucide-react";
+import { CheckCircle, Clock, X, Zap, Play, Tag, Calendar } from "lucide-react";
 
 const PATCH_NOTES = [
   {
@@ -166,18 +166,6 @@ export default function Updates() {
                 </p>
               </div>
             </div>
-          </div>
-
-          <div className="mb-16 text-center">
-            <a
-              href="https://instagram.com/Race.sense.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 hover:bg-white transition-colors"
-            >
-              <Instagram className="w-4 h-4" strokeWidth={1.5} />
-              Follow on Instagram
-            </a>
           </div>
 
           <div className="mb-16">
