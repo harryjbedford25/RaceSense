@@ -105,10 +105,10 @@ export default function Updates() {
           <div className="mb-16">
             <div className="text-center mb-4">
               <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-2">
-                Full Release Countdown
+                Milestone Countdown
               </h2>
               <p className="text-[#F4F4F9] text-lg mb-6">
-                RaceSense full release on September 17th, 2026
+                1st Production Application submission opens
               </p>
             </div>
             <Countdown />
