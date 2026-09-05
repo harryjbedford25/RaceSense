@@ -40,16 +40,20 @@ const PATCH_NOTES = [
 
 const SCREENSHOTS = [
   {
-    src: "/Screenshots/Screenshot_20260828_002932_Race sense.jpg",
-    alt: "RaceSense start screen"
+    src: "/Screenshots/1000053941.jpg",
+    alt: "RaceSense screenshot 1"
   },
   {
-    src: "/Screenshots/Screenshot_20260828_002956_Race sense.jpg",
-    alt: "RaceSense event setup"
+    src: "/Screenshots/1000053943.jpg",
+    alt: "RaceSense screenshot 2"
   },
   {
-    src: "/Screenshots/Screenshot_20260828_003646_Race sense.jpg",
-    alt: "RaceSense session running"
+    src: "/Screenshots/1000053945.jpg",
+    alt: "RaceSense screenshot 3"
+  },
+  {
+    src: "/Screenshots/1000053939.jpg",
+    alt: "RaceSense screenshot 4"
   }
 ];
 
