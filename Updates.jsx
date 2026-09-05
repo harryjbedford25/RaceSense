@@ -6,6 +6,17 @@ import { CheckCircle, Clock, X, Zap, Play, Tag } from "lucide-react";
 
 const PATCH_NOTES = [
   {
+    version: "0.2.1",
+    date: "September 2026",
+    subtitle: "Early Access",
+    changes: [
+      "Full settings page implementation",
+      "Customizable callout options",
+      "User preference system",
+      "Enhanced configuration controls"
+    ]
+  },
+  {
     version: "0.1.2",
     date: "September 2026",
     subtitle: "Early Access",
