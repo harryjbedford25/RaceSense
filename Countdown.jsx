@@ -37,7 +37,7 @@ export default function Countdown() {
     <div className="relative bg-[#ccff00] text-black overflow-hidden">
       <div className="absolute inset-0 flex items-center opacity-20 select-none pointer-events-none">
         <motion.div
-          className="flex whitespace-nowrap font-mono text-[14vw] sm:text-[10vw] uppercase tracking-tighter"
+          className="flex whitespace-nowrap font-mono text-[14vw] uppercase tracking-tighter"
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
         >
@@ -46,40 +46,40 @@ export default function Countdown() {
         </motion.div>
       </div>
 
-      <div className="relative max-w-4xl mx-auto px-6 py-16 sm:py-20 md:py-28 lg:py-36 text-center">
-        <div className="flex justify-center items-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
+      <div className="relative max-w-4xl mx-auto px-6 py-28 md:py-36 text-center">
+        <div className="flex justify-center items-center gap-4 md:gap-8">
           <div className="text-center">
-            <div className="font-jetbrains text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold">
+            <div className="font-jetbrains text-6xl md:text-8xl font-bold">
               {String(timeLeft.days).padStart(2, '0')}
             </div>
-            <div className="font-jetbrains text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-1 sm:mt-2">
+            <div className="font-jetbrains text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-2">
               Days
             </div>
           </div>
-          <div className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold">:</div>
+          <div className="text-6xl md:text-8xl font-bold">:</div>
           <div className="text-center">
-            <div className="font-jetbrains text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold">
+            <div className="font-jetbrains text-6xl md:text-8xl font-bold">
               {String(timeLeft.hours).padStart(2, '0')}
             </div>
-            <div className="font-jetbrains text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-1 sm:mt-2">
+            <div className="font-jetbrains text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-2">
               Hours
             </div>
           </div>
-          <div className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold">:</div>
+          <div className="text-6xl md:text-8xl font-bold">:</div>
           <div className="text-center">
-            <div className="font-jetbrains text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold">
+            <div className="font-jetbrains text-6xl md:text-8xl font-bold">
               {String(timeLeft.minutes).padStart(2, '0')}
             </div>
-            <div className="font-jetbrains text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-1 sm:mt-2">
+            <div className="font-jetbrains text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-2">
               Minutes
             </div>
           </div>
-          <div className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold">:</div>
+          <div className="text-6xl md:text-8xl font-bold">:</div>
           <div className="text-center">
-            <div className="font-jetbrains text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold">
+            <div className="font-jetbrains text-6xl md:text-8xl font-bold">
               {String(timeLeft.seconds).padStart(2, '0')}
             </div>
-            <div className="font-jetbrains text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-1 sm:mt-2">
+            <div className="font-jetbrains text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-2">
               Seconds
             </div>
           </div>

@@ -7,7 +7,7 @@ const KART = "/kmr4.jpg";
 export default function Hero() {
 
   return (
-    <section id="top" className="relative min-h-[100svh] flex items-end overflow-hidden">
+    <section id="top" className="relative min-h-[100svh] flex items-end overflow-hidden pt-16 sm:pt-0">
       <Image
         src={KART}
         alt="Kart racer on the grid at golden hour"
