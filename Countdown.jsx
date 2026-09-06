@@ -1,38 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 export default function Countdown() {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
-
-  useEffect(() => {
-    const targetDate = new Date('2026-09-17T00:00:00').getTime();
-
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance < 0) {
-        clearInterval(interval);
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      setTimeLeft({ days, hours, minutes, seconds });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="relative bg-[#ccff00] text-black overflow-hidden">
       <div className="absolute inset-0 flex items-center opacity-20 select-none pointer-events-none">
@@ -41,49 +10,29 @@ export default function Countdown() {
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
         >
-          <span>Countdown · Countdown · Countdown · Countdown · </span>
-          <span>Countdown · Countdown · Countdown · Countdown · </span>
+          <span>Follow Us · Follow Us · Follow Us · Follow Us · </span>
+          <span>Follow Us · Follow Us · Follow Us · Follow Us · </span>
         </motion.div>
       </div>
 
       <div className="relative max-w-4xl mx-auto px-6 py-28 md:py-36 text-center">
-        <div className="flex justify-center items-center gap-4 md:gap-8">
-          <div className="text-center">
-            <div className="font-jetbrains text-6xl md:text-8xl font-bold">
-              {String(timeLeft.days).padStart(2, '0')}
-            </div>
-            <div className="font-jetbrains text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-2">
-              Days
-            </div>
-          </div>
-          <div className="text-6xl md:text-8xl font-bold">:</div>
-          <div className="text-center">
-            <div className="font-jetbrains text-6xl md:text-8xl font-bold">
-              {String(timeLeft.hours).padStart(2, '0')}
-            </div>
-            <div className="font-jetbrains text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-2">
-              Hours
-            </div>
-          </div>
-          <div className="text-6xl md:text-8xl font-bold">:</div>
-          <div className="text-center">
-            <div className="font-jetbrains text-6xl md:text-8xl font-bold">
-              {String(timeLeft.minutes).padStart(2, '0')}
-            </div>
-            <div className="font-jetbrains text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-2">
-              Minutes
-            </div>
-          </div>
-          <div className="text-6xl md:text-8xl font-bold">:</div>
-          <div className="text-center">
-            <div className="font-jetbrains text-6xl md:text-8xl font-bold">
-              {String(timeLeft.seconds).padStart(2, '0')}
-            </div>
-            <div className="font-jetbrains text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-black/70 mt-2">
-              Seconds
-            </div>
-          </div>
-        </div>
+        <p className="font-mono text-[12px] tracking-[0.3em] uppercase mb-6">
+          Get in Touch
+        </p>
+        <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[0.95] mb-8">
+          Follow the Journey
+        </h2>
+        <p className="mx-auto max-w-lg text-black/70 leading-[1.6] mb-12">
+          Stay updated with development progress, behind-the-scenes content, and launch announcements by following us on Instagram.
+        </p>
+        <a
+          href="https://instagram.com/Race.sense.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 bg-black text-[#ccff00] px-8 py-4 font-mono text-[12px] tracking-[0.2em] uppercase hover:bg-black/80 transition-colors"
+        >
+          @Race.sense.app
+        </a>
       </div>
     </div>
   );
