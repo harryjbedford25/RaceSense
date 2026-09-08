@@ -143,8 +143,7 @@ export default function Updates() {
               Every racer deserves a race engineer in their ear.
             </h1>
             <p className="text-xl text-[#8E8E93] leading-relaxed mb-8">
-              RaceSense was born from a simple frustration: endless laps with no idea what line was one or two tenths faster. 
-              We're changing that by giving every racer the kind of real-time feedback that was once reserved for professionals.
+              
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/#grid" className="font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-8 py-4 hover:bg-white transition-colors text-center">
