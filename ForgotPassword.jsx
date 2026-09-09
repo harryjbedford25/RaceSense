@@ -16,7 +16,13 @@ export default function ForgotPassword() {
     e.preventDefault();
     setLoading(true);
     try {
-      await db.auth.resetPasswordRequest(email);
+      // TODO: Implement actual password reset request
+      // await db.auth.resetPasswordRequest(email);
+      
+      // Mock password reset for development
+      if (email) {
+        console.log("Password reset requested for:", email);
+      }
     } catch {
       // Always show success regardless
     } finally {

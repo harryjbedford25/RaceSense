@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import Nav from "./Nav";
 import Footer from "./Footer";
+import { CONTACT_EMAIL } from "./config";
 
 export default function Legal() {
   return (
@@ -187,7 +188,7 @@ export default function Legal() {
                 <div className="mt-4 space-y-2">
                   <p className="text-[#F4F4F9]">My Race Engineer</p>
                   <p className="text-[#F4F4F9]">Developed by Samuel Williams and Harry Bedford</p>
-                  <p className="text-[#ccff00]">Email: harryjbedford25@gmail.com</p>
+                  <p className="text-[#ccff00]">Email: {CONTACT_EMAIL}</p>
                 </div>
               </div>
             </div>
@@ -216,7 +217,7 @@ export default function Legal() {
                 <p>
                   For privacy-related enquiries:
                 </p>
-                <p className="text-[#ccff00]">Email: harryjbedford25@gmail.com</p>
+                <p className="text-[#ccff00]">Email: {CONTACT_EMAIL}</p>
               </div>
 
               <div className="space-y-4">
@@ -360,7 +361,7 @@ export default function Legal() {
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-[#F4F4F9]">11. Complaints</h3>
                 <p>
-                  If you have concerns about how we process your personal information, please contact us first at harryjbedford25@gmail.com.
+                  If you have concerns about how we process your personal information, please contact us first at {CONTACT_EMAIL}.
                 </p>
                 <p>
                   You may also complain to the UK's data protection regulator, the Information Commissioner's Office.

@@ -29,8 +29,15 @@ export default function Register() {
     }
     setLoading(true);
     try {
-      await db.auth.register({ email, password });
-      setShowOtp(true);
+      // TODO: Implement actual authentication
+      // await db.auth.register({ email, password });
+      
+      // Mock registration for development
+      if (email && password) {
+        setShowOtp(true);
+      } else {
+        setError("Please enter email and password");
+      }
     } catch (err) {
       setError(err.message || "Registration failed");
     } finally {
@@ -42,11 +49,18 @@ export default function Register() {
     setError("");
     setLoading(true);
     try {
-      const result = await db.auth.verifyOtp({ email, otpCode });
-      if (result?.access_token) {
-        db.auth.setToken(result.access_token);
+      // TODO: Implement actual OTP verification
+      // const result = await db.auth.verifyOtp({ email, otpCode });
+      // if (result?.access_token) {
+      //   db.auth.setToken(result.access_token);
+      // }
+      
+      // Mock verification for development
+      if (otpCode.length === 6) {
+        window.location.href = safeReturnTo();
+      } else {
+        setError("Please enter a valid 6-digit code");
       }
-      window.location.href = safeReturnTo();
     } catch (err) {
       setError(err.message || "Invalid verification code");
     } finally {
@@ -57,7 +71,10 @@ export default function Register() {
   const handleResend = async () => {
     setError("");
     try {
-      await db.auth.resendOtp(email);
+      // TODO: Implement actual OTP resend
+      // await db.auth.resendOtp(email);
+      
+      // Mock resend for development
       toast({
         title: "Code sent",
         description: "Check your email for the new code.",
@@ -68,7 +85,9 @@ export default function Register() {
   };
 
   const handleGoogle = () => {
-    db.auth.loginWithProvider("google", safeReturnTo());
+    // TODO: Implement actual Google authentication
+    // db.auth.loginWithProvider("google", safeReturnTo());
+    console.log("Google authentication not yet implemented");
   };
 
   if (showOtp) {

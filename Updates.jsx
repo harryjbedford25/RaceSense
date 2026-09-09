@@ -4,6 +4,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import { Image } from "@/image";
 import { ChevronRight, ArrowRight } from "lucide-react";
+import { CONTACT_EMAIL, CONTACT_INSTAGRAM } from "./config";
 
 const SCREENSHOTS = [
   {
@@ -142,9 +143,6 @@ export default function Updates() {
             <h1 className="text-5xl md:text-7xl font-semibold tracking-tight text-[#F4F4F9] leading-[0.95] mb-8">
               Every racer deserves a race engineer in their ear.
             </h1>
-            <p className="text-xl text-[#8E8E93] leading-relaxed mb-8">
-              
-            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/#grid" className="font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-8 py-4 hover:bg-white transition-colors text-center">
                 Join the Grid
@@ -208,7 +206,7 @@ export default function Updates() {
                 className="pt-4 flex flex-col sm:flex-row gap-4"
               >
                 <a
-                  href="https://instagram.com/Race.sense.app"
+                  href={CONTACT_INSTAGRAM}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-8 py-4 hover:bg-white transition-colors"
@@ -217,7 +215,7 @@ export default function Updates() {
                   <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                 </a>
                 <a
-                  href="mailto:harryjbedford25@gmail.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="inline-flex items-center gap-2 font-mono text-[12px] tracking-[0.2em] uppercase bg-white/5 border border-white/10 text-[#F4F4F9] px-8 py-4 hover:border-[#ccff00]/30 hover:text-[#ccff00] transition-colors"
                 >
                   Email

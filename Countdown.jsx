@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { CONTACT_INSTAGRAM } from "./config";
 
 export default function Countdown() {
   return (
@@ -26,7 +27,7 @@ export default function Countdown() {
           Stay updated with development progress, behind-the-scenes content, and launch announcements by following us on Instagram.
         </p>
         <a
-          href="https://instagram.com/Race.sense.app"
+          href={CONTACT_INSTAGRAM}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-3 bg-black text-[#ccff00] px-8 py-4 font-mono text-[12px] tracking-[0.2em] uppercase hover:bg-black/80 transition-colors"

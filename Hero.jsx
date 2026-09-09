@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Image } from "@/image";
+import { CONTACT_INSTAGRAM } from "./config";
 
 const KART = "/kmr4.jpg";
 
@@ -62,7 +63,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="mt-8 max-w-xl text-[#8E8E93] leading-[1.6]"
             >
-              Most racers dont realise when they're improving. Endless laps with no idea what line was one, or two tenths faster. Racesense aims to change this. Our virtual race engineer gives real-time in ear callouts about laptimes and gaps. 
+              Most racers don't realise when they're improving. Endless laps with no idea what line was one, or two tenths faster. Racesense aims to change this. Our virtual race engineer gives real-time in ear callouts about laptimes and gaps. 
             </motion.p>
             <div className="mt-10 flex flex-col sm:flex-wrap sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <a href="/#grid" className="font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 hover:bg-white transition-colors text-center sm:text-left">
@@ -75,7 +76,7 @@ export default function Hero() {
                 Updates
               </a>
               <a
-                href="https://instagram.com/Race.sense.app"
+                href={CONTACT_INSTAGRAM}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-[12px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-7 py-4 hover:border-[#ccff00] hover:text-[#ccff00] transition-colors text-center sm:text-left"

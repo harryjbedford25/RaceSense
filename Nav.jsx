@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { CONTACT_INSTAGRAM } from "./config";
 
 export default function Nav() {
   return (
@@ -17,7 +18,7 @@ export default function Nav() {
           <Link to="/updates" className="hover:text-[#ccff00] transition-colors">Updates</Link>
         </nav>
         <a
-          href="https://instagram.com/Race.sense.app"
+          href={CONTACT_INSTAGRAM}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-4 py-2 hover:bg-white transition-colors"
