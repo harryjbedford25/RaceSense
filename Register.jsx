@@ -87,7 +87,6 @@ export default function Register() {
   const handleGoogle = () => {
     // TODO: Implement actual Google authentication
     // db.auth.loginWithProvider("google", safeReturnTo());
-    console.log("Google authentication not yet implemented");
   };
 
   if (showOtp) {

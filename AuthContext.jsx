@@ -43,9 +43,27 @@ export const AuthProvider = ({ children }) => {
     const [isLoadingAuth, setIsLoadingAuth] = useState(false);
     const [isLoadingPublicSettings, setIsLoadingPublicSettings] = useState(false);
     const [authError, setAuthError] = useState(null);
+    const [authChecked, setAuthChecked] = useState(false);
 
     const navigateToLogin = () => {
         window.location.href = '/login';
+    };
+
+    const isAuthenticated = !!user;
+    
+    const checkUserAuth = async () => {
+        setIsLoadingAuth(true);
+        try {
+            // TODO: Implement actual authentication check
+            // const user = await db.auth.me();
+            // setUser(user);
+            setAuthChecked(true);
+        } catch (error) {
+            setAuthError(error);
+            setAuthChecked(true);
+        } finally {
+            setIsLoadingAuth(false);
+        }
     };
 
     const value = {
@@ -53,8 +71,11 @@ export const AuthProvider = ({ children }) => {
         isLoadingAuth,
         isLoadingPublicSettings,
         authError,
+        authChecked,
+        isAuthenticated,
         navigateToLogin,
-        setUser
+        setUser,
+        checkUserAuth
     };
 
     return (

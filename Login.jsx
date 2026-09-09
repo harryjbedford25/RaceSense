@@ -42,7 +42,6 @@ export default function Login() {
   const handleGoogle = () => {
     // TODO: Implement actual Google authentication
     // db.auth.loginWithProvider("google", returnTo);
-    console.log("Google authentication not yet implemented");
   };
 
   return (

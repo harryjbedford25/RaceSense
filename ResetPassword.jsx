@@ -30,7 +30,6 @@ export default function ResetPassword() {
       
       // Mock password reset for development
       if (newPassword && resetToken) {
-        console.log("Password reset with token:", resetToken);
         window.location.href = "/login";
       } else {
         setError("Please enter a new password");

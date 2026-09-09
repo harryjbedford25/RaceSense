@@ -21,7 +21,7 @@ export default function ForgotPassword() {
       
       // Mock password reset for development
       if (email) {
-        console.log("Password reset requested for:", email);
+        // Password reset requested
       }
     } catch {
       // Always show success regardless
