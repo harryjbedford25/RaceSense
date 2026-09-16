@@ -46,9 +46,15 @@ const TEAM_ROLES = [
 const DEVELOPMENT_DIARY = [
   {
     date: "September 2026",
+    title: "Version 0.3.0 - Share Feature",
+    description: "Introduced Strava-inspired share functionality, allowing racers to share their race results and lap times with the community. Social sharing integration enhances community engagement and adds competitive elements.",
+    status: "Completed"
+  },
+  {
+    date: "September 2026",
     title: "Closed Testing",
     description: "RaceSense is now in closed testing on Google Play with select racers providing feedback on real track conditions and race environments.",
-    status: "In Progress"
+    status: "Completed"
   },
   {
     date: "August 2026",
@@ -78,10 +84,10 @@ const DEVELOPMENT_DIARY = [
 
 const ROADMAP = [
   {
-    period: "September 2026",
+    period: "Q4 2026",
     status: "In Progress",
-    title: "Play Store Beta",
-    description: "RaceSense is now in closed beta, with drivers testing the system in real-world racing environments. We're using feedback from early users to improve the experience and build a solid foundation for the future."
+    title: "Community Features",
+    description: "Enhance the share feature with leaderboards, achievements, and social integrations. Build community-driven competitive elements and foster engagement through race comparisons and challenges."
   },
   {
     period: "Q4 2026",
