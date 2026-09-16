@@ -54,7 +54,7 @@ const DEVELOPMENT_DIARY = [
     date: "September 2026",
     title: "Closed Testing",
     description: "RaceSense is now in closed testing on Google Play with select racers providing feedback on real track conditions and race environments.",
-    status: "Completed"
+    status: "In Progress"
   },
   {
     date: "August 2026",
