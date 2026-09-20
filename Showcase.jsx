@@ -17,8 +17,7 @@ export default function Showcase() {
             The app, as it is today.
           </h2>
           <p className="mt-5 text-[16px] leading-[1.6] text-[#a9a9b0]">
-            Screenshots from the current closed-testing build. It's been tried at Brands Hatch,
-            Donington Park and Silverstone.
+            Screenshots from the current closed-testing build.
           </p>
         </div>
 

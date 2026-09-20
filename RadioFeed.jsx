@@ -142,7 +142,8 @@ export default function RadioFeed() {
       </div>
 
       <p className="mt-3 text-[13px] text-[#8E8E93]">
-        Example laps, worded the way the app says them.
+        Example laps, worded the way the app says them. The voice here is your browser's, so it
+        sounds different from the voice in the app.
       </p>
     </div>
   );

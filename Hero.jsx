@@ -34,7 +34,7 @@ export default function Hero() {
                 to="/#grid"
                 className="font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 hover:bg-white transition-colors text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Join the Grid
+                Get early access
               </Link>
               <a
                 href="#features"
