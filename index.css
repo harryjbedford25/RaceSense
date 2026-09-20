@@ -90,3 +90,19 @@
     @apply bg-background text-foreground font-body;
   }
 }
+
+/* Phone mockup hover animation */
+.phone-item {
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center bottom;
+}
+.phone-item:hover {
+  transform: translateY(-14px) scale(1.045);
+}
+.phone-frame {
+  transition: box-shadow 0.45s ease, filter 0.45s ease;
+}
+.phone-item:hover .phone-frame {
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.55);
+  filter: brightness(1.06);
+}

@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <div className="bg-[#101012] min-h-screen scroll-smooth">
       <Nav />
-      <Hero />
-      <Features />
       <Showcase />
+      <Features />
+      <Hero />
       <PitWall />
       <Footer />
     </div>
