@@ -1,31 +1,40 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { CONTACT_EMAIL, CONTACT_INSTAGRAM } from "./config";
 
 export default function PitWall() {
   return (
-    <section id="grid" className="relative bg-[#ccff00] text-black overflow-hidden">
-      <div className="absolute inset-0 flex items-center opacity-20 select-none pointer-events-none">
-        <motion.div
-          className="flex whitespace-nowrap font-mono text-[14vw] uppercase tracking-tighter"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-        >
-          <span>Coming soon · Coming soon · Coming soon · Coming soon · </span>
-          <span>Coming soon · Coming soon · Coming soon · Coming soon · </span>
-        </motion.div>
-      </div>
+    <section id="grid" className="bg-[#ccff00] text-black">
+      <div className="max-w-7xl mx-auto px-6 py-24 md:py-36 grid md:grid-cols-[1.2fr_0.8fr] gap-12 md:gap-16 items-end">
+        <div>
+          <h2 className="text-[clamp(3.5rem,11vw,9rem)] font-semibold tracking-[-0.045em] leading-[0.85]">
+            Join
+            <br />
+            the Grid.
+          </h2>
+        </div>
 
-      <div className="relative max-w-4xl mx-auto px-6 py-28 md:py-36 text-center">
-        <p className="font-mono text-[12px] tracking-[0.3em] uppercase">[ 03 / Pit Wall ]</p>
-        <h2 className="mt-6 text-5xl md:text-7xl font-semibold tracking-tight leading-[0.95]">
-          Join the Grid.
-        </h2>
-        <p className="mt-6 mx-auto max-w-lg text-black/70 leading-[1.6]">
-          The app is in final development and launching on Google Play. The badge lands here the day
-          we go live.
-        </p>
-        <div className="mt-12 inline-flex items-center gap-4 border-2 border-dashed border-black/50 px-10 py-6 font-mono text-[12px] tracking-[0.25em] uppercase">
-          Google Play badge · placeholder
+        <div>
+          <p className="text-[17px] leading-[1.55] text-black/75 max-w-sm">
+            RaceSense is in closed testing on Google Play. Tell us where you race and we'll get you
+            on the tester list.
+          </p>
+          {/* Swap the buttons for the Google Play badge on launch day. */}
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <a
+              href={`mailto:${CONTACT_EMAIL}?subject=RaceSense%20testing`}
+              className="font-mono text-[12px] tracking-[0.2em] uppercase bg-black text-[#ccff00] px-7 py-4 text-center hover:bg-black/80 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Email us
+            </a>
+            <a
+              href={CONTACT_INSTAGRAM}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[12px] tracking-[0.2em] uppercase border-2 border-black px-7 py-4 text-center hover:bg-black hover:text-[#ccff00] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Instagram
+            </a>
+          </div>
         </div>
       </div>
     </section>
