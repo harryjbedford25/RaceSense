@@ -27,7 +27,7 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#101012] via-[#101012]/80 to-[#101012]/50" />
 
-      <div className="relative max-w-3xl mx-auto px-6 py-24 md:py-32 w-full text-center">
+      <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32 w-full text-left">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,7 @@ export default function Hero() {
             Lap times in<br />your ear.
           </h1>
 
-          <p className="mt-8 mx-auto max-w-xl text-[#8E8E93] leading-[1.6] text-[15px] md:text-[17px]">
+          <p className="mt-8 max-w-xl text-[#8E8E93] leading-[1.6] text-[15px] md:text-[17px]">
             Most racers don't realise when they're improving. RaceSense gives you a
             virtual race engineer with real-time, in-ear callouts on lap times and
             gaps — so every session counts.
@@ -54,7 +54,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="mt-12 mx-auto max-w-md"
+          className="mt-12 max-w-md"
         >
           <div className="flex flex-col sm:flex-row gap-3">
             <input
@@ -81,7 +81,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-10 flex flex-col items-center gap-3"
+          className="mt-10 flex flex-col items-start gap-3"
         >
           <div className="inline-flex items-center gap-3 border border-dashed border-white/20 px-6 py-4 opacity-60">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="text-[#F4F4F9]">
