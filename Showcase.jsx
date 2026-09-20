@@ -9,27 +9,42 @@ const SHOTS = [
 ];
 
 export default function Showcase() {
-  return (
-    <section className="relative overflow-hidden py-24 md:py-32">
-      {/* Blue-to-violet gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#8fb9ff] via-[#85b1fb] to-[#7ea9f5]" />
+  const bgRef = React.useRef(null);
+  const sectionRef = React.useRef(null);
 
-      {/* Thin white grid overlay */}
+  React.useEffect(() => {
+    const onScroll = () => {
+      const el = sectionRef.current;
+      const bg = bgRef.current;
+      if (!el || !bg) return;
+      const rect = el.getBoundingClientRect();
+      const offset = rect.top + rect.height / 2 - window.innerHeight / 2;
+      bg.style.transform = `translate3d(0, ${offset * -0.15}px, 0)`;
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="relative overflow-hidden py-24 md:py-32 bg-[#101012]">
+      {/* Parallax grid background */}
       <div
-        className="absolute inset-0 opacity-[0.35] pointer-events-none"
+        ref={bgRef}
+        className="absolute inset-0 -top-1/2 -bottom-1/2 pointer-events-none will-change-transform"
         style={{
           backgroundImage:
-            "linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)",
+            "linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)",
           backgroundSize: "44px 44px",
         }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="max-w-xl">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] leading-[1] text-black">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] leading-[1] text-[#F4F4F9]">
             The app, as it is today.
           </h2>
-          <p className="mt-5 text-[16px] leading-[1.6] text-black/70">
+          <p className="mt-5 text-[16px] leading-[1.6] text-[#a9a9b0]">
             Screenshots from the current closed-testing build.
           </p>
         </div>
@@ -40,7 +55,7 @@ export default function Showcase() {
               key={s.src}
               className={`phone-item snap-center shrink-0 w-[70%] sm:w-[44%] md:w-auto ${i % 2 ? "md:mt-10" : ""}`}
             >
-              <div className="phone-frame relative rounded-[2.25rem] bg-black p-[6px] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.45)]">
+              <div className="phone-frame relative rounded-[2.25rem] bg-black p-[6px] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.45)] ring-1 ring-white/10">
                 {/* Notch */}
                 <div className="absolute top-[6px] left-1/2 -translate-x-1/2 w-[28%] h-5 bg-black rounded-b-[14px] z-20" />
                 {/* Screen — uniform aspect ratio, cropped */}
