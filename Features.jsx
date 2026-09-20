@@ -1,63 +1,248 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-// Each feature leads with the readout it produces, like a row on a timing screen.
-const ROWS = [
+const TONE = { faster: "#ccff00", best: "#b56cff", slower: "#ffb020" };
+
+const FEATURES = [
   {
+    id: "laps",
     readout: "-0.214",
-    color: "text-[#ccff00]",
-    bar: "border-[#ccff00]",
+    hex: "#ccff00",
     title: "Lap time callouts",
-    body: "Your time as you cross the line, and how it compares, read out in your ear. No glancing at a screen.",
+    body: "Your time as you cross the line, and how it compares. No glancing at a screen.",
   },
   {
+    id: "gaps",
     readout: "+1.3",
-    color: "text-[#F4F4F9]",
-    bar: "border-[#F4F4F9]",
+    hex: "#F4F4F9",
     title: "Gaps",
     body: "How far to the kart ahead and behind, so you know whether to push or defend.",
   },
   {
+    id: "context",
     readout: "S2",
-    color: "text-[#ffb020]",
-    bar: "border-[#ffb020]",
+    hex: "#ffb020",
     title: "Context engine",
-    body: "Short situational updates in plain language, so you know what's changing while your eyes stay on the track.",
+    body: "Short situational updates in plain language, while your eyes stay on the track.",
   },
   {
-    readout: "1:03.988",
-    color: "text-[#b56cff]",
-    bar: "border-[#b56cff]",
-    title: "Share your results",
-    body: "Post your best laps and race results to the community and see how you compare.",
+    id: "share",
+    readout: "58.83",
+    hex: "#b56cff",
+    title: "Share your race",
+    body: "Turn a session into a card with your track, fastest lap and positions.",
   },
 ];
 
-export default function Features() {
+/* ---------- mini visuals, one per feature ---------- */
+
+const LAPS = [
+  { lap: 8, t: 60.42, tone: "slower" },
+  { lap: 9, t: 59.96, tone: "faster" },
+  { lap: 10, t: 60.31, tone: "slower" },
+  { lap: 11, t: 59.62, tone: "best" },
+  { lap: 12, t: 59.41, tone: "best" },
+  { lap: 13, t: 59.87, tone: "slower" },
+  { lap: 14, t: 58.83, tone: "best" },
+];
+
+function LapBars({ reduce }) {
+  const height = (t) => 22 + ((t - 58.5) / 2.2) * 70; // shorter bar = quicker lap
   return (
-    <section id="features" className="bg-[#101012] border-t border-white/10 py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="max-w-2xl text-4xl md:text-6xl font-semibold tracking-[-0.03em] leading-[0.98] text-[#F4F4F9]">
+    <div className="w-full">
+      <div className="flex items-end gap-2 sm:gap-3 h-40">
+        {LAPS.map((l, i) => (
+          <div key={l.lap} className="flex-1 flex flex-col items-center justify-end h-full">
+            <span className="mb-1 font-jetbrains text-[11px] text-[#a9a9b0]">{l.t.toFixed(2)}</span>
+            <motion.div
+              initial={reduce ? false : { scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ delay: reduce ? 0 : i * 0.05, duration: 0.35 }}
+              style={{ height: `${height(l.t)}%`, backgroundColor: TONE[l.tone], transformOrigin: "bottom" }}
+              className="w-full max-w-[2.5rem]"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="mt-2 flex gap-2 sm:gap-3">
+        {LAPS.map((l) => (
+          <span key={l.lap} className="flex-1 text-center font-jetbrains text-[11px] text-[#8E8E93]">
+            L{l.lap}
+          </span>
+        ))}
+      </div>
+      <p className="mt-4 text-[12px] text-[#8E8E93]">
+        Shorter is quicker. Lime beat the lap before, purple is a new best, amber lost time.
+      </p>
+    </div>
+  );
+}
+
+function GapDiagram() {
+  const pos = (x) => 8 + (x / 2.1) * 84; // behind 0, you 0.8, ahead 2.1 (seconds)
+  const karts = [
+    { x: 0, label: "Behind", you: false },
+    { x: 0.8, label: "You", you: true },
+    { x: 2.1, label: "Ahead", you: false },
+  ];
+  return (
+    <div className="w-full">
+      <div className="relative h-28">
+        <div className="absolute left-[4%] right-[4%] top-1/2 h-px bg-white/25" />
+        <span
+          className="absolute -translate-x-1/2 top-[14%] font-jetbrains text-[13px] text-[#F4F4F9]"
+          style={{ left: `${(pos(0) + pos(0.8)) / 2}%` }}
+        >
+          0.8
+        </span>
+        <span
+          className="absolute -translate-x-1/2 top-[14%] font-jetbrains text-[13px] text-[#F4F4F9]"
+          style={{ left: `${(pos(0.8) + pos(2.1)) / 2}%` }}
+        >
+          1.3
+        </span>
+        {karts.map((k) => (
+          <React.Fragment key={k.label}>
+            <div
+              className={`absolute -translate-x-1/2 -translate-y-1/2 top-1/2 w-7 h-3.5 rounded-sm ${
+                k.you ? "bg-[#ccff00]" : "bg-[#F4F4F9]/70"
+              }`}
+              style={{ left: `${pos(k.x)}%` }}
+            />
+            <span
+              className={`absolute -translate-x-1/2 top-[66%] text-[12px] ${
+                k.you ? "text-[#ccff00]" : "text-[#8E8E93]"
+              }`}
+              style={{ left: `${pos(k.x)}%` }}
+            >
+              {k.label}
+            </span>
+          </React.Fragment>
+        ))}
+      </div>
+      <p className="text-[12px] text-[#8E8E93] text-right">Direction of travel: right. Gaps in seconds.</p>
+    </div>
+  );
+}
+
+const SECTORS = [
+  { s: "S1", d: "-0.05", c: "#ccff00" },
+  { s: "S2", d: "+0.10", c: "#ffb020" },
+  { s: "S3", d: "-0.02", c: "#ccff00" },
+];
+
+function SectorStrip() {
+  return (
+    <div className="w-full">
+      <div className="flex gap-2">
+        {SECTORS.map((x) => (
+          <div
+            key={x.s}
+            className="flex-1 bg-white/5 p-4 border-t-4"
+            style={{ borderTopColor: x.c }}
+          >
+            <p className="font-jetbrains text-[12px] text-[#8E8E93]">{x.s}</p>
+            <p className="mt-1 font-jetbrains text-2xl" style={{ color: x.c }}>
+              {x.d}
+            </p>
+          </div>
+        ))}
+      </div>
+      <p className="mt-5 font-jetbrains text-[14px] text-[#ccff00]">
+        &gt; Sector two is where the time went.
+      </p>
+    </div>
+  );
+}
+
+const STATS = [
+  ["Fastest lap", "58.83"],
+  ["Laps", "14"],
+  ["Position", "5"],
+  ["Peak position", "3"],
+];
+
+function ShareCard() {
+  return (
+    <div className="w-full grid grid-cols-[7.5rem_1fr] sm:grid-cols-[9rem_1fr] gap-5 items-center">
+      <div className="bg-[#1a1a1e] p-2">
+        <svg viewBox="0 0 150 120" className="w-full" aria-hidden="true">
+          <path
+            d="M25 78 C18 45 50 18 84 26 C112 33 100 56 122 66 C142 76 120 104 92 100 C70 97 62 84 46 96 C34 104 28 92 25 78Z"
+            fill="none"
+            stroke="#ccff00"
+            strokeWidth="2"
+          />
+        </svg>
+      </div>
+      <div className="grid grid-cols-2 gap-2">
+        {STATS.map(([label, value]) => (
+          <div key={label} className="bg-[#1a1a1e] px-3 py-2.5">
+            <p className="text-[11px] text-[#a9a9b0]">{label}</p>
+            <p className="font-jetbrains text-xl text-[#ccff00]">{value}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ---------- section ---------- */
+
+export default function Features() {
+  const reduce = useReducedMotion();
+  const [sel, setSel] = useState(0);
+  const f = FEATURES[sel];
+
+  return (
+    <section id="features" className="bg-[#101012] border-t border-white/10 py-16 md:py-20">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="max-w-xl text-3xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.05] text-[#F4F4F9]">
           Know what worked before you're back in the pits.
         </h2>
 
-        <ul className="mt-14 md:mt-20 border-t border-white/10">
-          {ROWS.map((r) => (
-            <li
-              key={r.title}
-              className={`grid md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-4 md:gap-12 items-center py-8 md:py-10 border-b border-white/10 border-l-2 pl-5 md:pl-8 ${r.bar}`}
-            >
-              <p
-                className={`font-jetbrains text-[clamp(2.5rem,7vw,5.5rem)] leading-none tracking-tight ${r.color}`}
-              >
-                {r.readout}
-              </p>
-              <div className="max-w-md">
-                <h3 className="text-xl font-semibold text-[#F4F4F9]">{r.title}</h3>
-                <p className="mt-2 text-[16px] leading-[1.6] text-[#a9a9b0]">{r.body}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-10 grid md:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] gap-4 md:gap-6">
+          <ul className="flex flex-col gap-1">
+            {FEATURES.map((x, i) => (
+              <li key={x.id}>
+                <button
+                  type="button"
+                  onClick={() => setSel(i)}
+                  aria-pressed={sel === i}
+                  aria-controls="feature-panel"
+                  className={`w-full text-left flex items-baseline gap-4 border-l-2 px-4 py-3 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                    sel === i ? "bg-white/[0.06]" : "hover:bg-white/[0.03] opacity-70 hover:opacity-100"
+                  }`}
+                  style={{ borderLeftColor: x.hex }}
+                >
+                  <span
+                    className="font-jetbrains text-xl w-16 shrink-0"
+                    style={{ color: x.hex }}
+                  >
+                    {x.readout}
+                  </span>
+                  <span className="text-[15px] font-medium text-[#F4F4F9]">{x.title}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <div
+            id="feature-panel"
+            className="border border-white/10 bg-white/[0.03] p-6 flex flex-col gap-6 md:min-h-[20rem]"
+          >
+            <div>
+              <h3 className="text-lg font-semibold text-[#F4F4F9]">{f.title}</h3>
+              <p className="mt-1 text-[15px] leading-[1.55] text-[#a9a9b0] max-w-md">{f.body}</p>
+            </div>
+            <div className="flex-1 flex items-center" key={f.id}>
+              {f.id === "laps" && <LapBars reduce={reduce} />}
+              {f.id === "gaps" && <GapDiagram />}
+              {f.id === "context" && <SectorStrip />}
+              {f.id === "share" && <ShareCard />}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
