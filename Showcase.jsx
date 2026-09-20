@@ -42,7 +42,7 @@ export default function Showcase() {
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="max-w-xl">
           <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] leading-[1] text-[#F4F4F9]">
-            The app, as it is today.
+            Lap times in your ear.
           </h2>
           <p className="mt-5 text-[16px] leading-[1.6] text-[#a9a9b0]">
             Screenshots from the current closed-testing build.
