@@ -1,37 +1,20 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Image } from "@/image";
+import { CONTACT_EMAIL } from "./config";
 
 const KART = "/kmr4.jpg";
 
-const SCREENSHOTS = [
-  {
-    src: "/Screenshots/1000053943.jpg",
-    alt: "RaceSense screenshot 1"
-  },
-  {
-    src: "/Screenshots/1000053941.jpg",
-    alt: "RaceSense screenshot 2"
-  },
-  {
-    src: "/Screenshots/1000053945.jpg",
-    alt: "RaceSense screenshot 3"
-  },
-  {
-    src: "/Screenshots/1000053939.jpg",
-    alt: "RaceSense screenshot 4"
-  }
-];
-
 export default function Hero() {
-  const [currentScreenshot, setCurrentScreenshot] = useState(0);
+  const [email, setEmail] = useState("");
 
-  const nextScreenshot = () => {
-    setCurrentScreenshot((prev) => (prev + 1) % SCREENSHOTS.length);
-  };
-
-  const prevScreenshot = () => {
-    setCurrentScreenshot((prev) => (prev - 1 + SCREENSHOTS.length) % SCREENSHOTS.length);
+  const handleGetAccess = (e) => {
+    e.preventDefault();
+    const subject = encodeURIComponent("RaceSense — Early Access Request");
+    const body = encodeURIComponent(
+      `I'd like early access to RaceSense.\n\nMy email: ${email || "(not provided)"}`
+    );
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -39,104 +22,85 @@ export default function Hero() {
       <Image
         src={KART}
         alt="Kart racer on the grid at golden hour"
-        className="absolute inset-0 w-full h-full object-cover opacity-60"
-        style={{ objectPosition: 'center 35%' }}
+        className="absolute inset-0 w-full h-full object-cover opacity-50"
+        style={{ objectPosition: "center 35%" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#101012] via-[#101012]/70 to-[#101012]/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#101012] via-[#101012]/80 to-[#101012]/50" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28 w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left side - Content */}
-          <div className="order-2 lg:order-1">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-[11vw] md:text-[6vw] leading-[0.9] font-semibold tracking-tight text-[#F4F4F9] max-w-4xl"
+      <div className="relative max-w-3xl mx-auto px-6 py-24 md:py-32 w-full text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="inline-block font-mono text-[11px] tracking-[0.3em] uppercase text-[#ccff00] border border-[#ccff00]/30 px-4 py-1.5 mb-8">
+            Coming Soon
+          </span>
+
+          <h1 className="text-[12vw] md:text-[5.5vw] leading-[0.95] font-semibold tracking-tight text-[#F4F4F9]">
+            Lap times in<br />your ear.
+          </h1>
+
+          <p className="mt-8 mx-auto max-w-xl text-[#8E8E93] leading-[1.6] text-[15px] md:text-[17px]">
+            Most racers don't realise when they're improving. RaceSense gives you a
+            virtual race engineer with real-time, in-ear callouts on lap times and
+            gaps — so every session counts.
+          </p>
+        </motion.div>
+
+        {/* Lead capture */}
+        <motion.form
+          onSubmit={handleGetAccess}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+          className="mt-12 mx-auto max-w-md"
+        >
+          <div className="flex flex-col sm:flex-row gap-3">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email"
+              className="flex-1 bg-white/5 border border-white/15 text-[#F4F4F9] placeholder-[#8E8E93] px-5 py-4 font-mono text-[13px] focus:outline-none focus:border-[#ccff00] transition-colors"
+            />
+            <button
+              type="submit"
+              className="font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 hover:bg-white transition-colors whitespace-nowrap"
             >
-              Lap times in<br />your ear.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="mt-8 max-w-xl text-[#8E8E93] leading-[1.6]"
-            >
-              Most racers don't realise when they're improving. Endless laps with no idea what line was one, or two tenths faster. Racesense aims to change this. Our virtual race engineer gives real-time in ear callouts about laptimes and gaps. 
-            </motion.p>
-            <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-              <a href="/#grid" className="font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 hover:bg-white transition-colors text-center sm:text-left">
-                Join the Grid
-              </a>
-              <a href="/about" className="font-mono text-[12px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-7 py-4 hover:border-[#ccff00] hover:text-[#ccff00] transition-colors text-center sm:text-left">
-                About
-              </a>
-            </div>
+              Get Early Access
+            </button>
           </div>
+          <p className="mt-3 font-mono text-[10px] tracking-[0.15em] uppercase text-[#8E8E93]/70">
+            We'll email you when it's ready — no spam.
+          </p>
+        </motion.form>
 
-          {/* Right side - Screenshots */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-full max-w-sm"
-            >
-              <div className="relative bg-black/30 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentScreenshot}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
-                    className="aspect-[9/17] rounded-xl overflow-hidden bg-black/50"
-                  >
-                    <Image
-                      src={SCREENSHOTS[currentScreenshot].src}
-                      alt={SCREENSHOTS[currentScreenshot].alt}
-                      className="w-full h-full object-contain"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-
-                {/* Navigation buttons */}
-                <button
-                  onClick={prevScreenshot}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-colors backdrop-blur-sm"
-                  aria-label="Previous screenshot"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                  </svg>
-                </button>
-                <button
-                  onClick={nextScreenshot}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-colors backdrop-blur-sm"
-                  aria-label="Next screenshot"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                  </svg>
-                </button>
-
-                {/* Dots indicator */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-                  {SCREENSHOTS.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentScreenshot(index)}
-                      className={`w-2 h-2 rounded-full transition-colors ${
-                        index === currentScreenshot ? 'bg-[#ccff00]' : 'bg-white/30'
-                      }`}
-                      aria-label={`Go to screenshot ${index + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+        {/* Play Store placeholder */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-10 flex flex-col items-center gap-3"
+        >
+          <div className="inline-flex items-center gap-3 border border-dashed border-white/20 px-6 py-4 opacity-60">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="text-[#F4F4F9]">
+              <path d="M3 20.5V3.5c0-.59.34-1.11.84-1.35L13.69 12 3.84 21.85c-.5-.25-.84-.76-.84-1.35Z" />
+              <path d="M16.81 15.12 6.05 21.34l8.49-8.06 2.27 1.84Z" />
+              <path d="M20.16 10.81 17.5 9.13 14.54 12l2.96 2.87 2.66-1.68c.75-.48.75-1.9 0-2.38Z" />
+              <path d="M6.05 2.66l10.76 6.22-2.27 1.84-8.49-8.06Z" />
+            </svg>
+            <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#F4F4F9]">
+              Coming to Google Play
+            </span>
           </div>
-        </div>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="font-mono text-[11px] tracking-[0.15em] uppercase text-[#8E8E93] hover:text-[#ccff00] transition-colors"
+          >
+            or reach us directly — {CONTACT_EMAIL}
+          </a>
+        </motion.div>
       </div>
     </section>
   );
