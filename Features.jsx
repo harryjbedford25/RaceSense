@@ -195,8 +195,23 @@ export default function Features() {
   const f = FEATURES[sel];
 
   return (
-    <section id="features" className="bg-[#101012] border-t border-white/10 py-16 md:py-20">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="features" className="relative overflow-hidden bg-[#101012] border-t border-white/10 py-16 md:py-20">
+      {/* Subtle grid background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+        }}
+      />
+      {/* Lime accent glow */}
+      <div className="absolute left-[10%] -top-20 w-[28rem] h-[28rem] rounded-full bg-[#ccff00]/[0.07] blur-[120px] pointer-events-none" />
+
+      <div className="relative max-w-6xl mx-auto px-6">
+        <p className="font-mono text-[12px] tracking-[0.25em] uppercase text-[#ccff00] mb-5">
+          // The readout
+        </p>
         <h2 className="max-w-xl text-3xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.05] text-[#F4F4F9]">
           Know what worked before you're back in the pits.
         </h2>
@@ -210,7 +225,7 @@ export default function Features() {
                   onClick={() => setSel(i)}
                   aria-pressed={sel === i}
                   aria-controls="feature-panel"
-                  className={`w-full text-left flex items-baseline gap-4 border-l-2 px-4 py-3 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                  className={`w-full text-left flex items-baseline gap-4 border-l-2 px-4 py-3 rounded-r-lg transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
                     sel === i ? "bg-white/[0.06]" : "hover:bg-white/[0.03] opacity-70 hover:opacity-100"
                   }`}
                   style={{ borderLeftColor: x.hex }}
@@ -229,7 +244,7 @@ export default function Features() {
 
           <div
             id="feature-panel"
-            className="border border-white/10 bg-white/[0.03] p-6 flex flex-col gap-6 md:min-h-[20rem]"
+            className="border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03] p-6 flex flex-col gap-6 md:min-h-[20rem]"
           >
             <div>
               <h3 className="text-lg font-semibold text-[#F4F4F9]">{f.title}</h3>
