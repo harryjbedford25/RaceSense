@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Image } from "@/image";
-import { CONTACT_INSTAGRAM } from "./config";
 
 const KART = "/kmr4.jpg";
 
@@ -46,14 +45,14 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-[#101012] via-[#101012]/70 to-[#101012]/40" />
 
       <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Content */}
           <div className="order-2 lg:order-1">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-[13vw] md:text-[7vw] leading-[0.9] font-semibold tracking-tight text-[#F4F4F9] max-w-4xl"
+              className="text-[11vw] md:text-[6vw] leading-[0.9] font-semibold tracking-tight text-[#F4F4F9] max-w-4xl"
             >
               Lap times in<br />your ear.
             </motion.h1>
@@ -65,23 +64,12 @@ export default function Hero() {
             >
               Most racers don't realise when they're improving. Endless laps with no idea what line was one, or two tenths faster. Racesense aims to change this. Our virtual race engineer gives real-time in ear callouts about laptimes and gaps. 
             </motion.p>
-            <div className="mt-10 flex flex-col sm:flex-wrap sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <a href="/#grid" className="font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 hover:bg-white transition-colors text-center sm:text-left">
                 Join the Grid
               </a>
               <a href="/about" className="font-mono text-[12px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-7 py-4 hover:border-[#ccff00] hover:text-[#ccff00] transition-colors text-center sm:text-left">
                 About
-              </a>
-              <a href="/updates" className="font-mono text-[12px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-7 py-4 hover:border-[#ccff00] hover:text-[#ccff00] transition-colors text-center sm:text-left">
-                Updates
-              </a>
-              <a
-                href={CONTACT_INSTAGRAM}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-[12px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-7 py-4 hover:border-[#ccff00] hover:text-[#ccff00] transition-colors text-center sm:text-left"
-              >
-                Instagram
               </a>
             </div>
           </div>
