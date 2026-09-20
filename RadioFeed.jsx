@@ -102,12 +102,12 @@ export default function RadioFeed() {
   return (
     <div className="w-full max-w-lg">
       {canSpeak && (
-        <div className="flex justify-center mb-4">
+        <div className="mb-4">
           <button
             type="button"
             onClick={play}
             aria-pressed={speaking}
-            className="inline-flex items-center gap-2 bg-[#ccff00] text-black px-8 py-4 text-[17px] font-medium hover:bg-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="w-full inline-flex items-center justify-center gap-2 bg-[#ccff00] text-black px-8 py-4 text-[17px] font-medium hover:bg-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             {speaking ? (
               <Square className="w-4 h-4" fill="currentColor" aria-hidden="true" />

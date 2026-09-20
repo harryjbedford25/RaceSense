@@ -1,420 +1,277 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import { Image } from "@/image";
-import { ChevronRight, ArrowRight } from "lucide-react";
 import { CONTACT_EMAIL, CONTACT_INSTAGRAM } from "./config";
 
-const SCREENSHOTS = [
-  {
-    src: "/Screenshots/1000053943.jpg",
-    alt: "RaceSense screenshot 1"
-  },
-  {
-    src: "/Screenshots/1000053941.jpg",
-    alt: "RaceSense screenshot 2"
-  },
-  {
-    src: "/Screenshots/1000053945.jpg",
-    alt: "RaceSense screenshot 3"
-  },
-  {
-    src: "/Screenshots/1000053939.jpg",
-    alt: "RaceSense screenshot 4"
-  }
+/* ---------- content ---------- */
+
+const STATUS = [
+  { label: "Right now", value: "Closed testing on Google Play", hex: "#ccff00" },
+  { label: "Latest build", value: "v0.3.0, share your race", hex: "#F4F4F9" },
+  { label: "Up next", value: "Public launch on Google Play", hex: "#8E8E93" },
 ];
 
-const TEAM_ROLES = [
-  {
-    title: "Social Media Lead",
-    description: "Help build RaceSense's presence across Instagram, TikTok, and other platforms. Create engaging content, grow our community, and connect with racers.",
-    type: "Social Media"
-  },
-  {
-    title: "Content Creator",
-    description: "Create videos, graphics, and stories that showcase RaceSense in action. From track day content to educational pieces about race engineering.",
-    type: "Content"
-  },
-  {
-    title: "Community Builder",
-    description: "Connect with racing communities, influencers, and tracks. Help us find our first RaceSense ambassadors and build partnerships.",
-    type: "Community"
-  }
-];
-
-const DEVELOPMENT_DIARY = [
+// Newest first.
+const BUILD_LOG = [
   {
     date: "September 2026",
-    title: "Version 0.3.0 - Share Feature",
-    description: "Introduced Strava-inspired share functionality, allowing racers to share their race results and lap times with the community. Social sharing integration enhances community engagement and adds competitive elements.",
-    status: "Completed"
+    status: "In progress",
+    title: "Closed testing on Google Play",
+    body: "RaceSense is with a small group of racers who are giving us feedback before the public launch.",
   },
   {
     date: "September 2026",
-    title: "Closed Testing",
-    description: "RaceSense is now in closed testing on Google Play with select racers providing feedback on real track conditions and race environments.",
-    status: "In Progress"
+    status: "Done",
+    title: "Version 0.3.0: share your race",
+    body: "Strava-inspired sharing. Turn a session into a card with your track, fastest lap and positions, and share it with the community.",
   },
   {
     date: "August 2026",
-    title: "Internal Testing",
-    description: "Completed internal testing phase with core functionality verified across multiple devices and usage scenarios.",
-    status: "Completed"
+    status: "Done",
+    title: "Internal testing",
+    body: "Core features checked across multiple devices and usage scenarios.",
   },
-  {
-    date: "July 2026",
-    title: "Track Testing",
-    description: "Successful testing at multiple UK circuits including Brands Hatch, Donington Park, and Silverstone with real racing data.",
-    status: "Completed"
-  },
-  {
-    date: "Coming Soon",
-    title: "Production Launch",
-    description: "Public release on Google Play Store once closed testing feedback is incorporated and final polish is complete.",
-    status: "Planned"
-  },
-  {
-    date: "Coming Soon",
-    title: "Web Version",
-    description: "Browser-based version of RaceSense for desktop and laptop users, bringing the race engineer experience to more platforms.",
-    status: "Planned"
-  }
 ];
 
 const ROADMAP = [
   {
-    period: "Q4 2026",
-    status: "In Progress",
-    title: "Community Features",
-    description: "Enhance the share feature with leaderboards, achievements, and social integrations. Build community-driven competitive elements and foster engagement through race comparisons and challenges."
+    name: "Now",
+    sub: "In progress",
+    hex: "#ccff00",
+    items: [
+      {
+        title: "Community features",
+        when: "Q4 2026",
+        body: "Leaderboards, achievements and social features built on the share feature, with race comparisons and challenges.",
+      },
+      {
+        title: "Tester feedback and polish",
+        body: "Working through what closed testers tell us before the public launch.",
+      },
+    ],
   },
   {
-    period: "Q4 2026",
-    status: "Planned",
-    title: "Building the Brand",
-    description: "Grow the RaceSense community through partnerships with drivers, teams, photographers and motorsport creators, alongside our first RaceSense ambassadors."
+    name: "Next",
+    sub: "Coming up",
+    hex: "#F4F4F9",
+    items: [
+      {
+        title: "Public launch",
+        body: "Release on Google Play once tester feedback is in and the final polish is done.",
+      },
+      {
+        title: "Web version",
+        body: "A browser version for desktop and laptop users.",
+      },
+      {
+        title: "Building the brand",
+        when: "Q4 2026",
+        body: "Partnerships with drivers, teams, photographers and motorsport creators, plus our first RaceSense ambassadors.",
+      },
+    ],
   },
   {
-    period: "2027",
-    status: "Planned",
-    title: "Smarter Race Engineering",
-    description: "Continue developing RaceSense beyond its current rule-based system, giving it greater awareness of what is happening during a race and making its callouts more useful and relevant."
+    name: "Later",
+    sub: "The long game",
+    hex: "#8E8E93",
+    items: [
+      {
+        title: "Smarter race engineering",
+        when: "2027",
+        body: "Moving beyond today's rule-based system, so RaceSense knows more about what's happening in a race and its callouts get more useful.",
+      },
+      {
+        title: "The race engineer in your pocket",
+        when: "Long term",
+        body: "An intelligent race engineering platform that helps drivers understand what's happening on track and decide better, without a full race engineering team.",
+      },
+    ],
   },
-  {
-    period: "Long Term",
-    status: "Our Vision",
-    title: "The Race Engineer in Your Pocket",
-    description: "Our goal is to build RaceSense into a genuinely intelligent race engineering platform, helping drivers understand what is happening on track and make better decisions, without needing a full race engineering team."
-  }
 ];
 
+const TEAM_ROLES = [
+  {
+    title: "Social media lead",
+    type: "Social",
+    body: "Build RaceSense's presence on Instagram, TikTok and beyond. Create content, grow the community and connect with racers.",
+  },
+  {
+    title: "Content creator",
+    type: "Content",
+    body: "Make videos, graphics and stories that show RaceSense in action, from track day clips to explainers about race engineering.",
+  },
+  {
+    title: "Community builder",
+    type: "Community",
+    body: "Connect with racing communities, influencers and tracks. Help us find our first ambassadors and build partnerships.",
+  },
+];
+
+/* ---------- bits ---------- */
+
+const NODE = {
+  "In progress": "bg-[#101012] border-2 border-[#ccff00] ring-4 ring-[#ccff00]/20",
+  Done: "bg-[#ccff00]",
+};
+
+const TAG = {
+  "In progress": "bg-[#ccff00]/20 text-[#ccff00]",
+  Done: "bg-white/10 text-[#F4F4F9]",
+};
+
+const btnPrimary =
+  "font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 text-center hover:bg-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+const btnGhost =
+  "font-mono text-[12px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-7 py-4 text-center hover:border-[#ccff00] hover:text-[#ccff00] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+
+/* ---------- page ---------- */
+
 export default function Updates() {
-  const [currentScreenshot, setCurrentScreenshot] = useState(0);
-
-  const nextScreenshot = () => {
-    setCurrentScreenshot((prev) => (prev + 1) % SCREENSHOTS.length);
-  };
-
-  const prevScreenshot = () => {
-    setCurrentScreenshot((prev) => (prev - 1 + SCREENSHOTS.length) % SCREENSHOTS.length);
-  };
-
   return (
     <div className="bg-[#101012] min-h-screen">
       <Nav />
 
-      {/* Hero Mission Statement + Join the Team with shared background */}
-      <div className="relative">
+      {/* Header */}
+      <header className="relative pt-32 pb-16 overflow-hidden">
         <Image
           src="/Final_1-10.jpg"
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
-          style={{ objectPosition: 'center 100%' }}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          style={{ objectPosition: "center 100%" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#101012]/50 via-[#101012]/70 to-[#101012]/70" />
-        
-        {/* Hero Mission Statement */}
-        <section className="relative pt-32 pb-20 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <p className="font-mono text-[12px] tracking-[0.3em] uppercase text-[#ccff00] mb-6">
-              The RaceSense Story
-            </p>
-            <h1 className="text-5xl md:text-7xl font-semibold tracking-tight text-[#F4F4F9] leading-[0.95] mb-8">
-              Every racer deserves a race engineer in their ear.
-            </h1>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/#grid" className="font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-8 py-4 hover:bg-white transition-colors text-center">
-                Join the Grid
-              </a>
-              <a href="/about" className="font-mono text-[12px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-8 py-4 hover:border-[#ccff00] hover:text-[#ccff00] transition-colors text-center">
-                Learn More
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#101012]/60 via-[#101012]/80 to-[#101012]" />
 
-      {/* Join the Team */}
-      <section className="relative py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Team Roles */}
-            <div className="space-y-8">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <p className="font-mono text-[12px] tracking-[0.3em] uppercase text-[#8E8E93] mb-4">
-                  [ 01 / Join the Team ]
-                </p>
-                <h2 className="text-4xl font-semibold text-[#F4F4F9] mb-4">
-                  Help build the future of race engineering
-                </h2>
-                <p className="text-[#8E8E93] leading-relaxed mb-6">
-                  We're looking for passionate people to help grow RaceSense across social media and build our racing community. No experience required—just enthusiasm for motorsport and creating great content.
-                </p>
-              </motion.div>
+        <div className="relative max-w-6xl mx-auto px-6">
+          <h1 className="max-w-3xl text-4xl md:text-6xl font-semibold tracking-[-0.035em] leading-[1] text-[#F4F4F9]">
+            What we've built, and what's next.
+          </h1>
+          <p className="mt-6 max-w-xl text-[17px] leading-[1.6] text-[#c9c9d0]">
+            RaceSense is being built in the open. Here's where the app is today and where it's
+            heading.
+          </p>
 
-              {TEAM_ROLES.map((role, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  className="bg-white/5 border border-white/10 p-6 hover:border-[#ccff00]/30 transition-colors group"
-                >
-                  <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-[#F4F4F9]">
-                      {role.title}
-                    </h3>
-                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#ccff00] bg-[#ccff00]/10 px-2 py-1 rounded">
-                      {role.type}
-                    </span>
-                  </div>
-                  <p className="text-[#8E8E93] leading-relaxed">
-                    {role.description}
-                  </p>
-                </motion.div>
-              ))}
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="pt-4 flex flex-col sm:flex-row gap-4"
-              >
-                <a
-                  href={CONTACT_INSTAGRAM}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-8 py-4 hover:bg-white transition-colors"
-                >
-                  Instagram
-                  <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-                </a>
-                <a
-                  href={`mailto:${CONTACT_EMAIL}`}
-                  className="inline-flex items-center gap-2 font-mono text-[12px] tracking-[0.2em] uppercase bg-white/5 border border-white/10 text-[#F4F4F9] px-8 py-4 hover:border-[#ccff00]/30 hover:text-[#ccff00] transition-colors"
-                >
-                  Email
-                  <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-                </a>
-              </motion.div>
-            </div>
-
-            {/* Screenshot Carousel */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="relative max-w-xs mx-auto lg:mx-0 lg:ml-auto"
-            >
-              <div className="relative bg-black/30 backdrop-blur-sm rounded-xl p-3 border border-white/10">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentScreenshot}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
-                    className="aspect-[9/17] rounded-lg overflow-hidden bg-black/50"
-                  >
-                    <Image
-                      src={SCREENSHOTS[currentScreenshot].src}
-                      alt={SCREENSHOTS[currentScreenshot].alt}
-                      className="w-full h-full object-contain"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-
-                <button
-                  onClick={prevScreenshot}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-colors backdrop-blur-sm"
-                  aria-label="Previous screenshot"
-                >
-                  <ChevronRight className="w-4 h-4 rotate-180" />
-                </button>
-                <button
-                  onClick={nextScreenshot}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-colors backdrop-blur-sm"
-                  aria-label="Next screenshot"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                  {SCREENSHOTS.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentScreenshot(index)}
-                      className={`w-1.5 h-1.5 rounded-full transition-colors ${
-                        index === currentScreenshot ? 'bg-[#ccff00]' : 'bg-white/30'
-                      }`}
-                      aria-label={`Go to screenshot ${index + 1}`}
-                    />
-                  ))}
-                </div>
+          <dl className="mt-10 grid sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl">
+            {STATUS.map((s) => (
+              <div key={s.label} className="border-l-2 pl-4" style={{ borderLeftColor: s.hex }}>
+                <dt className="text-[13px] text-[#8E8E93]">{s.label}</dt>
+                <dd className="mt-1 text-[15px] font-medium text-[#F4F4F9]">{s.value}</dd>
               </div>
-            </motion.div>
+            ))}
+          </dl>
+
+          <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <Link to="/#grid" className={btnPrimary}>
+              Get early access
+            </Link>
+            <Link to="/about" className={btnGhost}>
+              About
+            </Link>
           </div>
         </div>
-      </section>
-      </div>
+      </header>
 
-      {/* Development Diary */}
-      <section className="py-20 bg-[#101012]">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
-            <p className="font-mono text-[12px] tracking-[0.3em] uppercase text-[#8E8E93] mb-4">
-              [ 02 / Development Diary ]
-            </p>
-            <h2 className="text-4xl font-semibold text-[#F4F4F9]">
-              Building RaceSense
-            </h2>
-          </motion.div>
+      {/* Build log */}
+      <section className="border-t border-white/10 py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-[minmax(0,16rem)_minmax(0,1fr)] gap-8 md:gap-16">
+          <h2 className="text-3xl font-semibold tracking-[-0.02em] text-[#F4F4F9]">Build log</h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {DEVELOPMENT_DIARY.map((entry, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white/5 border border-white/10 p-6 hover:border-[#ccff00]/30 transition-colors"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-[#8E8E93]">
-                    {entry.date}
-                  </span>
-                  <span className={`font-mono text-[10px] tracking-[0.2em] uppercase px-2 py-1 rounded ${
-                    entry.status === 'In Progress' 
-                      ? 'bg-[#ccff00]/20 text-[#ccff00]' 
-                      : entry.status === 'Planned'
-                      ? 'bg-white/10 text-[#8E8E93]'
-                      : 'bg-[#ccff00]/10 text-[#ccff00]'
-                  }`}>
-                    {entry.status}
+          <ol className="border-l border-white/15 ml-1.5 max-w-2xl">
+            {BUILD_LOG.map((e) => (
+              <li key={e.title} className="relative pl-8 pb-10 last:pb-0">
+                <span
+                  className={`absolute -left-[7px] top-1.5 w-3.5 h-3.5 rounded-full ${NODE[e.status]}`}
+                  aria-hidden="true"
+                />
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="font-jetbrains text-[12px] text-[#8E8E93]">{e.date}</span>
+                  <span className={`text-[12px] px-2 py-0.5 rounded ${TAG[e.status]}`}>
+                    {e.status}
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold text-[#F4F4F9] mb-3">
-                  {entry.title}
-                </h3>
-                <p className="text-[#8E8E93] leading-relaxed">
-                  {entry.description}
-                </p>
-              </motion.div>
+                <h3 className="mt-2 text-lg font-semibold text-[#F4F4F9]">{e.title}</h3>
+                <p className="mt-1 text-[15px] leading-[1.6] text-[#a9a9b0]">{e.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Roadmap */}
+      <section className="border-t border-white/10 py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl font-semibold tracking-[-0.02em] text-[#F4F4F9]">Roadmap</h2>
+
+          <div className="mt-10 grid md:grid-cols-3 gap-10">
+            {ROADMAP.map((col) => (
+              <div key={col.name} className="border-t-2 pt-5" style={{ borderTopColor: col.hex }}>
+                <h3 className="text-xl font-semibold text-[#F4F4F9]">{col.name}</h3>
+                <p className="text-[13px] text-[#8E8E93]">{col.sub}</p>
+
+                <ul className="mt-4 divide-y divide-white/10">
+                  {col.items.map((it) => (
+                    <li key={it.title} className="py-4">
+                      <div className="flex items-baseline justify-between gap-3">
+                        <h4 className="font-medium text-[#F4F4F9]">{it.title}</h4>
+                        {it.when && (
+                          <span className="font-jetbrains text-[12px] text-[#8E8E93] shrink-0">
+                            {it.when}
+                          </span>
+                        )}
+                      </div>
+                      <p className="mt-1 text-[14px] leading-[1.6] text-[#a9a9b0]">{it.body}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Compact Roadmap */}
-      <section className="py-20 bg-[#101012]">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
-            <p className="font-mono text-[12px] tracking-[0.3em] uppercase text-[#8E8E93] mb-4">
-              [ 03 / What's Coming ]
-            </p>
-            <h2 className="text-4xl font-semibold text-[#F4F4F9]">
-              The Road Ahead
+      {/* Get involved */}
+      <section className="border-t border-white/10 py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] gap-12 md:gap-16">
+          <div>
+            <h2 className="text-3xl font-semibold tracking-[-0.02em] text-[#F4F4F9]">
+              Help us grow RaceSense
             </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {ROADMAP.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group bg-gradient-to-br from-white/5 to-transparent border border-white/10 p-6 hover:border-[#ccff00]/50 transition-all"
+            <p className="mt-4 max-w-md text-[16px] leading-[1.6] text-[#a9a9b0]">
+              We're looking for people to help build the racing community around the app. No
+              experience needed, just enthusiasm for motorsport and making good content.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <a href={`mailto:${CONTACT_EMAIL}?subject=RaceSense`} className={btnPrimary}>
+                Get in touch
+              </a>
+              <a
+                href={CONTACT_INSTAGRAM}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={btnGhost}
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93]">
-                      {item.period}
-                    </span>
-                    <span className={`ml-2 font-mono text-[10px] tracking-[0.2em] uppercase px-2 py-1 rounded ${
-                      item.status === 'In Progress' 
-                        ? 'bg-[#ccff00]/20 text-[#ccff00]' 
-                        : item.status === 'Our Vision'
-                        ? 'bg-[#ccff00]/10 text-[#ccff00]'
-                        : 'bg-white/10 text-[#8E8E93]'
-                    }`}>
-                      {item.status}
-                    </span>
-                  </div>
-                  <ArrowRight className="w-5 h-5 text-[#8E8E93] group-hover:text-[#ccff00] transition-colors" strokeWidth={1.5} />
-                </div>
-                <h3 className="text-lg font-semibold text-[#F4F4F9] mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-[#8E8E93] leading-relaxed">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
+                Instagram
+              </a>
+            </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 text-center"
-          >
-            <p className="text-[#8E8E93] mb-6">
-              Want to influence what we build next?
-            </p>
-            <a href="/#grid" className="inline-flex items-center gap-2 font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-8 py-4 hover:bg-white transition-colors">
-              Join the Grid
-              <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-            </a>
-          </motion.div>
+          <ul className="divide-y divide-white/10 border-y border-white/10">
+            {TEAM_ROLES.map((r) => (
+              <li key={r.title} className="py-5">
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-lg font-semibold text-[#F4F4F9]">{r.title}</h3>
+                  <span className="text-[12px] text-[#ccff00] bg-[#ccff00]/10 px-2 py-0.5 rounded">
+                    {r.type}
+                  </span>
+                </div>
+                <p className="mt-1 text-[15px] leading-[1.6] text-[#a9a9b0]">{r.body}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
+
       <Footer />
     </div>
   );
