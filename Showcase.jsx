@@ -1,8 +1,6 @@
 import React from "react";
 
-const SHOTS = [
-  { src: "/Screenshots/Mockup2.png", alt: "RaceSense mockup 2" },
-];
+// Using phones.png for centered display
 
 export default function Showcase() {
   const bgRef = React.useRef(null);
@@ -55,11 +53,11 @@ export default function Showcase() {
           </p>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-12 flex justify-center items-center">
           <img
-            src="/Screenshots/Mockup2.png"
-            alt="RaceSense mockup"
-            className="w-full max-w-[60rem] rounded-lg"
+            src="/Screenshots/phones.png"
+            alt="RaceSense phones"
+            className="max-w-[60rem] rounded-lg"
           />
         </div>
       </div>
