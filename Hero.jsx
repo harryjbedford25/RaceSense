@@ -50,7 +50,7 @@ export default function Hero() {
           </div>
 
           <div className="flex lg:justify-end">
-            <img src="/Screenshots/mockup.png" alt="RaceSense mockup" className="w-[80vw] max-w-[60rem] rounded-lg" />
+            <img src="/Screenshots/Mockup.png" alt="RaceSense mockup" className="w-[80vw] max-w-[60rem] rounded-lg" />
           </div>
         </div>
       </div>
