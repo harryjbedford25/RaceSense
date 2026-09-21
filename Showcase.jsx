@@ -1,10 +1,7 @@
 import React from "react";
 
 const SHOTS = [
-  { src: "/Screenshots/MainFull.jpg", alt: "RaceSense main screen" },
-  { src: "/Screenshots/SettingsFull.jpg", alt: "RaceSense settings" },
-  { src: "/Screenshots/ShareFull.jpg", alt: "RaceSense share feature" },
-  { src: "/Screenshots/FilterFull.jpg", alt: "RaceSense filter" },
+  { src: "/Screenshots/Mockup2.png", alt: "RaceSense mockup 2" },
 ];
 
 export default function Showcase() {
