@@ -193,7 +193,7 @@ export default function Features() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="features" className="relative overflow-hidden border-t border-white/10 py-16 md:py-20">
+    <section id="features" className="relative overflow-hidden border-t border-white/10 hidden md:block md:py-20">
       {/* Subtle grid background */}
       <div
         className="absolute inset-0 pointer-events-none"
