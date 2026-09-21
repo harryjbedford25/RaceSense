@@ -9,30 +9,8 @@ import { CONTACT_EMAIL, CONTACT_INSTAGRAM } from "./config";
 
 const STATUS = [
   { label: "Right now", value: "Closed testing on Google Play", hex: "#ccff00" },
-  { label: "Latest build", value: "v0.3.0, share your race", hex: "#F4F4F9" },
+  { label: "Latest build", value: "v0.4.0, enhanced UI", hex: "#F4F4F9" },
   { label: "Up next", value: "Public launch on Google Play", hex: "#8E8E93" },
-];
-
-// Newest first.
-const BUILD_LOG = [
-  {
-    date: "September 2026",
-    status: "In progress",
-    title: "Closed testing on Google Play",
-    body: "RaceSense is with a small group of racers who are giving us feedback before the public launch.",
-  },
-  {
-    date: "September 2026",
-    status: "Done",
-    title: "Version 0.3.0: share your race",
-    body: "Strava-inspired sharing. Turn a session into a card with your track, fastest lap and positions, and share it with the community.",
-  },
-  {
-    date: "August 2026",
-    status: "Done",
-    title: "Internal testing",
-    body: "Core features checked across multiple devices and usage scenarios.",
-  },
 ];
 
 const ROADMAP = [
@@ -95,31 +73,21 @@ const TEAM_ROLES = [
   {
     title: "Social media lead",
     type: "Social",
-    body: "Build RaceSense's presence on Instagram, TikTok and beyond. Create content, grow the community and connect with racers.",
+    body: "Build presence on Instagram, TikTok and beyond. Create content and grow the racing community.",
   },
   {
     title: "Content creator",
     type: "Content",
-    body: "Make videos, graphics and stories that show RaceSense in action, from track day clips to explainers about race engineering.",
+    body: "Create videos and graphics showing RaceSense in action, from track clips to race engineering explainers.",
   },
   {
     title: "Community builder",
     type: "Community",
-    body: "Connect with racing communities, influencers and tracks. Help us find our first ambassadors and build partnerships.",
+    body: "Connect with racing communities and influencers. Find ambassadors and build partnerships.",
   },
 ];
 
 /* ---------- bits ---------- */
-
-const NODE = {
-  "In progress": "bg-[#101012] border-2 border-[#ccff00] ring-4 ring-[#ccff00]/20",
-  Done: "bg-[#ccff00]",
-};
-
-const TAG = {
-  "In progress": "bg-[#ccff00]/20 text-[#ccff00]",
-  Done: "bg-white/10 text-[#F4F4F9]",
-};
 
 const btnPrimary =
   "font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 text-center hover:bg-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
@@ -145,15 +113,15 @@ export default function Updates() {
 
         {/* Header */}
         <header className="relative pt-32 pb-16 overflow-hidden">
-        <Image
-          src="/Final_1-10.jpg"
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
-          style={{ objectPosition: "center 100%" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#101012]/60 via-[#101012]/80 to-[#101012]" />
+          <Image
+            src="/Final_1-10.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-30"
+            style={{ objectPosition: "center 100%" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#101012]/60 via-[#101012]/80 to-[#101012]" />
 
-        <div className="relative max-w-6xl mx-auto px-6">
+          <div className="relative max-w-6xl mx-auto px-6">
           <h1 className="max-w-3xl text-4xl md:text-6xl font-semibold tracking-[-0.035em] leading-[1] text-[#F4F4F9]">
             What we've built, and what's next.
           </h1>
@@ -181,32 +149,6 @@ export default function Updates() {
           </div>
         </div>
       </header>
-
-      {/* Build log */}
-      <section className="border-t border-white/10 py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-[minmax(0,16rem)_minmax(0,1fr)] gap-8 md:gap-16">
-          <h2 className="text-3xl font-semibold tracking-[-0.02em] text-[#F4F4F9]">Build log</h2>
-
-          <ol className="border-l border-white/15 ml-1.5 max-w-2xl">
-            {BUILD_LOG.map((e) => (
-              <li key={e.title} className="relative pl-8 pb-10 last:pb-0">
-                <span
-                  className={`absolute -left-[7px] top-1.5 w-3.5 h-3.5 rounded-full ${NODE[e.status]}`}
-                  aria-hidden="true"
-                />
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="font-jetbrains text-[12px] text-[#8E8E93]">{e.date}</span>
-                  <span className={`text-[12px] px-2 py-0.5 rounded ${TAG[e.status]}`}>
-                    {e.status}
-                  </span>
-                </div>
-                <h3 className="mt-2 text-lg font-semibold text-[#F4F4F9]">{e.title}</h3>
-                <p className="mt-1 text-[15px] leading-[1.6] text-[#a9a9b0]">{e.body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
 
       {/* Roadmap */}
       <section className="border-t border-white/10 py-16 md:py-20">
@@ -271,14 +213,16 @@ export default function Updates() {
 
           <ul className="divide-y divide-white/10 border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03]">
             {TEAM_ROLES.map((r) => (
-              <li key={r.title} className="py-5">
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-lg font-semibold text-[#F4F4F9]">{r.title}</h3>
-                  <span className="text-[12px] text-[#ccff00] bg-[#ccff00]/10 px-2 py-0.5 rounded">
+              <li key={r.title} className="py-4">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1">
+                    <h3 className="text-base font-semibold text-[#F4F4F9]">{r.title}</h3>
+                    <p className="mt-2 text-[14px] leading-[1.5] text-[#a9a9b0]">{r.body}</p>
+                  </div>
+                  <span className="text-[11px] text-[#ccff00] bg-[#ccff00]/10 px-2 py-0.5 rounded shrink-0">
                     {r.type}
                   </span>
                 </div>
-                <p className="mt-1 text-[15px] leading-[1.6] text-[#a9a9b0]">{r.body}</p>
               </li>
             ))}
           </ul>

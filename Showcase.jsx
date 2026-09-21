@@ -2,10 +2,10 @@ import React from "react";
 import { Image } from "@/image";
 
 const SHOTS = [
-  { src: "/Screenshots/1000053943.jpg", alt: "RaceSense screenshot 1" },
-  { src: "/Screenshots/1000053941.jpg", alt: "RaceSense screenshot 2" },
-  { src: "/Screenshots/1000053945.jpg", alt: "RaceSense screenshot 3" },
-  { src: "/Screenshots/1000053939.jpg", alt: "RaceSense screenshot 4" },
+  { src: "/Screenshots/MainFull.jpg", alt: "RaceSense main screen" },
+  { src: "/Screenshots/SettingsFull.jpg", alt: "RaceSense settings" },
+  { src: "/Screenshots/ShareFull.jpg", alt: "RaceSense share feature" },
+  { src: "/Screenshots/FilterFull.jpg", alt: "RaceSense filter" },
 ];
 
 export default function Showcase() {
