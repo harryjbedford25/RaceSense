@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const TONE = { faster: "#ccff00", best: "#b56cff", slower: "#ffb020" };
@@ -191,8 +191,6 @@ function ShareCard() {
 
 export default function Features() {
   const reduce = useReducedMotion();
-  const [sel, setSel] = useState(0);
-  const f = FEATURES[sel];
 
   return (
     <section id="features" className="relative overflow-hidden border-t border-white/10 py-16 md:py-20">
@@ -220,61 +218,36 @@ export default function Features() {
             Real-time race intelligence delivered straight to your ear. No screens, no distractions—just the data that matters.
           </p>
 
-          <div className="mt-12 grid md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] gap-6 md:gap-8">
-          <ul className="flex flex-col gap-2">
-            {FEATURES.map((x, i) => (
-              <li key={x.id}>
-                <button
-                  type="button"
-                  onClick={() => setSel(i)}
-                  aria-pressed={sel === i}
-                  aria-controls="feature-panel"
-                  className={`group w-full text-left flex items-center gap-4 border border-white/10 ring-1 ring-white/5 rounded-xl bg-white/[0.03] px-5 py-4 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
-                    sel === i
-                      ? "border-[#ccff00]/30 ring-[#ccff00]/20 bg-white/[0.06] shadow-lg shadow-[#ccff00]/5"
-                      : "hover:bg-white/[0.05] hover:border-white/20 opacity-70 hover:opacity-100"
-                  }`}
-                >
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {FEATURES.map((feature) => (
+              <div key={feature.id} className="border border-white/10 ring-1 ring-white/5 rounded-xl bg-white/[0.03] p-6">
+                <div className="mb-4 flex items-center gap-4">
                   <div
-                    className={`w-14 h-14 rounded-lg flex items-center justify-center transition-all duration-300 ${
-                      sel === i ? "bg-[#ccff00]/20" : "bg-white/5 group-hover:bg-white/10"
-                    }`}
+                    className="w-14 h-14 rounded-lg flex items-center justify-center bg-[#ccff00]/20"
                   >
                     <span
                       className="font-jetbrains text-base font-bold"
-                      style={{ color: x.hex }}
+                      style={{ color: feature.hex }}
                     >
-                      {x.readout}
+                      {feature.readout}
                     </span>
                   </div>
                   <div className="flex-1">
-                    <span className="text-[15px] font-medium text-[#F4F4F9] block">{x.title}</span>
-                    <span className="text-[12px] text-[#8E8E93] mt-0.5 block">{x.body.substring(0, 40)}...</span>
+                    <h3 className="text-lg font-medium text-[#F4F4F9]">{feature.title}</h3>
+                    <p className="mt-1 text-[12px] leading-[1.5] text-[#a9a9b0]">{feature.body}</p>
                   </div>
-                  {sel === i && (
-                    <div className="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse" />
-                  )}
-                </button>
-              </li>
-            ))}
-          </ul>
+                </div>
 
-          <div
-            id="feature-panel"
-            className="border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03] p-6 flex flex-col gap-6 md:min-h-[20rem]"
-          >
-            <div>
-              <h3 className="text-lg font-semibold text-[#F4F4F9]">{f.title}</h3>
-              <p className="mt-1 text-[15px] leading-[1.55] text-[#a9a9b0] max-w-md">{f.body}</p>
-            </div>
-            <div className="flex-1 flex items-center" key={f.id}>
-              {f.id === "laps" && <LapBars reduce={reduce} />}
-              {f.id === "gaps" && <GapDiagram />}
-              {f.id === "context" && <SectorStrip />}
-              {f.id === "share" && <ShareCard />}
-            </div>
+                {/* Feature-specific visualization */}
+                <div className="flex-1 flex items-center">
+                  {feature.id === "laps" && <LapBars reduce={reduce} />}
+                  {feature.id === "gaps" && <GapDiagram />}
+                  {feature.id === "context" && <SectorStrip />}
+                  {feature.id === "share" && <ShareCard />}
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
         </div>
       </div>
     </section>
