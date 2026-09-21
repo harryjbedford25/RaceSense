@@ -1,5 +1,4 @@
 import React from "react";
-import { Image } from "@/image";
 
 const SHOTS = [
   { src: "/Screenshots/MainFull.jpg", alt: "RaceSense main screen" },
@@ -70,10 +69,9 @@ export default function Showcase() {
                 <div className="absolute top-[6px] left-1/2 -translate-x-1/2 w-[28%] h-5 bg-black rounded-b-[14px] z-20" />
                 {/* Screen — uniform aspect ratio, cropped */}
                 <div className="aspect-[9/19.5] overflow-hidden rounded-[1.75rem] bg-black">
-                  <Image
+                  <img
                     src={s.src}
                     alt={s.alt}
-                    fittingType="fill"
                     className="w-full h-full object-cover"
                   />
                 </div>
