@@ -3,7 +3,6 @@ import Nav from "@/Nav";
 import Hero from "@/Hero";
 import Features from "@/Features";
 import Showcase from "@/Showcase";
-import PitWall from "@/PitWall";
 import Footer from "@/Footer";
 import SocialProof from "@/SocialProof";
 import PhotoGallery from "@/PhotoGallery";
