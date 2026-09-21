@@ -16,33 +16,33 @@ export default function Hero() {
       {/* Lime accent glow behind the console */}
       <div className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[36rem] h-[36rem] rounded-full bg-[#ccff00]/10 blur-[120px] pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-24 w-full">
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center">
+      <div className="relative mx-auto px-4 py-12 md:px-6 md:py-16 w-full">
+        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-12 items-center">
           <div>
-            <p className="font-mono text-[12px] tracking-[0.25em] uppercase text-[#ccff00] mb-6">
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ccff00] mb-4">
               // Live readout
             </p>
-            <h1 className="text-[clamp(3rem,8vw,5.5rem)] leading-[0.9] font-semibold tracking-[-0.04em] text-[#F4F4F9]">
+            <h1 className="text-[clamp(2.25rem,9vw,4rem)] leading-[0.9] font-semibold tracking-[-0.03em] text-[#F4F4F9]">
               A race engineer
               <br />
               in your ear.
             </h1>
-            <p className="mt-8 max-w-lg text-[17px] leading-[1.6] text-[#c9c9d0]">
+            <p className="mt-6 text-[15px] leading-[1.5] text-[#c9c9d0]">
               Most racers can't tell when they're getting quicker. RaceSense reads out your lap
               times and gaps as you drive, so you know what worked while you're still on track.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row gap-2 sm:gap-3">
               <a
                 href="https://play.google.com/store"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 hover:bg-white transition-colors text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="font-mono text-[11px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-5 py-3 hover:bg-white transition-colors text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Get on Play Store
               </a>
               <Link
                 to="/updates"
-                className="font-mono text-[12px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-7 py-4 hover:border-[#ccff00] hover:text-[#ccff00] transition-colors text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="font-mono text-[11px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-5 py-3 hover:border-[#ccff00] hover:text-[#ccff00] transition-colors text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 View Updates
               </Link>
@@ -50,7 +50,7 @@ export default function Hero() {
           </div>
 
           <div className="flex lg:justify-end">
-            <img src="/Screenshots/Mockup.png" alt="RaceSense mockup" className="w-[100vw] max-w-[60rem] lg:w-[80vw] rounded-lg" />
+            <img src="/Screenshots/Mockup.png" alt="RaceSense mockup" className="w-[90vw] max-w-[50rem] lg:w-[70vw] rounded-lg" />
           </div>
         </div>
       </div>
