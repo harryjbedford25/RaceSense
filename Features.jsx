@@ -195,7 +195,7 @@ export default function Features() {
   const f = FEATURES[sel];
 
   return (
-    <section id="features" className="relative overflow-hidden bg-[#101012] border-t border-white/10 py-16 md:py-20">
+    <section id="features" className="relative overflow-hidden border-t border-white/10 py-16 md:py-20">
       {/* Subtle grid background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -208,16 +208,20 @@ export default function Features() {
       {/* Lime accent glow */}
       <div className="absolute left-[10%] -top-20 w-[28rem] h-[28rem] rounded-full bg-[#ccff00]/[0.07] blur-[120px] pointer-events-none" />
 
-      <div className="relative max-w-6xl mx-auto px-6">
-        <p className="font-mono text-[12px] tracking-[0.25em] uppercase text-[#ccff00] mb-5">
-          // The readout
-        </p>
-        <h2 className="max-w-xl text-3xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.05] text-[#F4F4F9]">
-          Know what worked before you're back in the pits.
-        </h2>
+      <div className="relative">
+        <div className="relative max-w-6xl mx-auto px-6">
+          <p className="font-mono text-[12px] tracking-[0.25em] uppercase text-[#ccff00] mb-4">
+            // race data
+          </p>
+          <h2 className="max-w-2xl text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.04em] leading-[1.05] text-[#F4F4F9]">
+            Know what worked before you're back in the pits.
+          </h2>
+          <p className="mt-4 max-w-lg text-[17px] leading-[1.6] text-[#a9a9b0]">
+            Real-time race intelligence delivered straight to your ear. No screens, no distractions—just the data that matters.
+          </p>
 
-        <div className="mt-10 grid md:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] gap-4 md:gap-6">
-          <ul className="flex flex-col gap-1">
+          <div className="mt-12 grid md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] gap-6 md:gap-8">
+          <ul className="flex flex-col gap-2">
             {FEATURES.map((x, i) => (
               <li key={x.id}>
                 <button
@@ -225,18 +229,31 @@ export default function Features() {
                   onClick={() => setSel(i)}
                   aria-pressed={sel === i}
                   aria-controls="feature-panel"
-                  className={`w-full text-left flex items-baseline gap-4 border-l-2 px-4 py-3 rounded-r-lg transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
-                    sel === i ? "bg-white/[0.06]" : "hover:bg-white/[0.03] opacity-70 hover:opacity-100"
+                  className={`group w-full text-left flex items-center gap-4 border border-white/10 ring-1 ring-white/5 rounded-xl bg-white/[0.03] px-5 py-4 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                    sel === i
+                      ? "border-[#ccff00]/30 ring-[#ccff00]/20 bg-white/[0.06] shadow-lg shadow-[#ccff00]/5"
+                      : "hover:bg-white/[0.05] hover:border-white/20 opacity-70 hover:opacity-100"
                   }`}
-                  style={{ borderLeftColor: x.hex }}
                 >
-                  <span
-                    className="font-jetbrains text-xl w-16 shrink-0"
-                    style={{ color: x.hex }}
+                  <div
+                    className={`w-14 h-14 rounded-lg flex items-center justify-center transition-all duration-300 ${
+                      sel === i ? "bg-[#ccff00]/20" : "bg-white/5 group-hover:bg-white/10"
+                    }`}
                   >
-                    {x.readout}
-                  </span>
-                  <span className="text-[15px] font-medium text-[#F4F4F9]">{x.title}</span>
+                    <span
+                      className="font-jetbrains text-base font-bold"
+                      style={{ color: x.hex }}
+                    >
+                      {x.readout}
+                    </span>
+                  </div>
+                  <div className="flex-1">
+                    <span className="text-[15px] font-medium text-[#F4F4F9] block">{x.title}</span>
+                    <span className="text-[12px] text-[#8E8E93] mt-0.5 block">{x.body.substring(0, 40)}...</span>
+                  </div>
+                  {sel === i && (
+                    <div className="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse" />
+                  )}
                 </button>
               </li>
             ))}
@@ -257,6 +274,7 @@ export default function Features() {
               {f.id === "share" && <ShareCard />}
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

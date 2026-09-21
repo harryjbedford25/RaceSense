@@ -36,7 +36,7 @@ export default function ContactForm() {
             <p className="text-[#8E8E93]">We'll get back to you soon.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03] p-8 space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-2">

@@ -120,7 +120,7 @@ export default function RadioFeed() {
       )}
 
       <div
-        className="border border-[#ccff00] bg-[#101012]/90 backdrop-blur-md p-5 font-jetbrains text-[14px] sm:text-[15px] leading-[1.9] text-[#ccff00] min-h-[17rem]"
+        className="border border-[#ccff00] ring-1 ring-white/5 rounded-2xl bg-white/[0.03] p-5 font-jetbrains text-[14px] sm:text-[15px] leading-[1.9] text-[#ccff00] min-h-[17rem]"
         role="log"
         aria-label="Example RaceSense console output"
       >

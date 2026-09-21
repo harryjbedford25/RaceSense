@@ -14,9 +14,9 @@ export default function FeatureStrip() {
         <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#8E8E93] text-center">
           [ In development ]
         </p>
-        <div className="mt-8 grid grid-cols-2 gap-px bg-white/10 border border-white/10">
+        <div className="mt-8 grid grid-cols-2 gap-6">
           {FEATURES.map((f) => (
-            <div key={f.title} className="bg-[#101012] p-8 md:p-10 flex flex-col items-center text-center gap-3">
+            <div key={f.title} className="border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03] p-8 md:p-10 flex flex-col items-center text-center gap-3">
               <f.icon className="w-7 h-7 text-[#ccff00]" strokeWidth={1.5} />
               <h3 className="font-mono text-[13px] md:text-[15px] tracking-[0.15em] uppercase text-[#F4F4F9]">
                 {f.title}
@@ -28,7 +28,7 @@ export default function FeatureStrip() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12 border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03] p-8 text-center">
           <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-6">
             Launching 01/09/26
           </p>

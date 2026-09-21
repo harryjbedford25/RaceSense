@@ -23,8 +23,17 @@ export default function PageNotFound({}) {
     });
     
     return (
-        <div className="min-h-screen flex items-center justify-center p-6 bg-slate-50">
-            <div className="max-w-md w-full">
+        <div className="min-h-screen flex items-center justify-center p-6 bg-slate-50 relative">
+            {/* Subtle grid background */}
+            <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px)",
+                    backgroundSize: "44px 44px",
+                }}
+            />
+            <div className="relative max-w-md w-full">
                 <div className="text-center space-y-6">
                     {/* 404 Error Code */}
                     <div className="space-y-2">

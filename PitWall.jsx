@@ -13,7 +13,7 @@ export default function PitWall() {
           </h2>
         </div>
 
-        <div>
+        <div className="border border-black/10 ring-1 ring-black/5 rounded-2xl bg-black/[0.03] p-8">
           <p className="text-[17px] leading-[1.55] text-black/75 max-w-sm">
             RaceSense is in closed testing on Google Play. Tell us where you race and we'll get you
             on the tester list.

@@ -6,9 +6,19 @@ import { CONTACT_EMAIL } from "./config";
 
 export default function Legal() {
   return (
-    <div className="min-h-screen bg-[#101012] text-[#F4F4F9]">
-      <Nav />
-      <div className="max-w-4xl mx-auto px-6 py-20 pt-32">
+    <div className="min-h-screen bg-[#101012] text-[#F4F4F9] relative">
+      {/* Subtle grid background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+        }}
+      />
+      <div className="relative">
+        <Nav />
+        <div className="max-w-4xl mx-auto px-6 py-20 pt-32">
         <h1 className="font-mono text-[12px] tracking-[0.3em] uppercase text-[#ccff00] mb-8">
           Legal Information
         </h1>
@@ -379,6 +389,7 @@ export default function Legal() {
         </div>
       </div>
       <Footer />
+      </div>
     </div>
   );
 }

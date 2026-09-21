@@ -130,11 +130,21 @@ const btnGhost =
 
 export default function Updates() {
   return (
-    <div className="bg-[#101012] min-h-screen">
-      <Nav />
+    <div className="bg-[#101012] min-h-screen relative">
+      {/* Subtle grid background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+        }}
+      />
+      <div className="relative">
+        <Nav />
 
-      {/* Header */}
-      <header className="relative pt-32 pb-16 overflow-hidden">
+        {/* Header */}
+        <header className="relative pt-32 pb-16 overflow-hidden">
         <Image
           src="/Final_1-10.jpg"
           alt=""
@@ -205,25 +215,28 @@ export default function Updates() {
 
           <div className="mt-10 grid md:grid-cols-3 gap-10">
             {ROADMAP.map((col) => (
-              <div key={col.name} className="border-t-2 pt-5" style={{ borderTopColor: col.hex }}>
-                <h3 className="text-xl font-semibold text-[#F4F4F9]">{col.name}</h3>
-                <p className="text-[13px] text-[#8E8E93]">{col.sub}</p>
+              <div key={col.name} className="border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03] overflow-hidden">
+                <div className="h-1.5" style={{ backgroundColor: col.hex }} />
+                <div className="p-5">
+                  <h3 className="text-xl font-semibold text-[#F4F4F9]">{col.name}</h3>
+                  <p className="text-[13px] text-[#8E8E93]">{col.sub}</p>
 
-                <ul className="mt-4 divide-y divide-white/10">
-                  {col.items.map((it) => (
-                    <li key={it.title} className="py-4">
-                      <div className="flex items-baseline justify-between gap-3">
-                        <h4 className="font-medium text-[#F4F4F9]">{it.title}</h4>
-                        {it.when && (
-                          <span className="font-jetbrains text-[12px] text-[#8E8E93] shrink-0">
-                            {it.when}
-                          </span>
-                        )}
-                      </div>
-                      <p className="mt-1 text-[14px] leading-[1.6] text-[#a9a9b0]">{it.body}</p>
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="mt-4 divide-y divide-white/10">
+                    {col.items.map((it) => (
+                      <li key={it.title} className="py-4">
+                        <div className="flex items-baseline justify-between gap-3">
+                          <h4 className="font-medium text-[#F4F4F9]">{it.title}</h4>
+                          {it.when && (
+                            <span className="font-jetbrains text-[12px] text-[#8E8E93] shrink-0">
+                              {it.when}
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-1 text-[14px] leading-[1.6] text-[#a9a9b0]">{it.body}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
@@ -256,7 +269,7 @@ export default function Updates() {
             </div>
           </div>
 
-          <ul className="divide-y divide-white/10 border-y border-white/10">
+          <ul className="divide-y divide-white/10 border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03]">
             {TEAM_ROLES.map((r) => (
               <li key={r.title} className="py-5">
                 <div className="flex items-center justify-between gap-3">
@@ -273,6 +286,7 @@ export default function Updates() {
       </section>
 
       <Footer />
+      </div>
     </div>
   );
 }

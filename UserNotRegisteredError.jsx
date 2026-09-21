@@ -2,8 +2,17 @@ import React from 'react';
 
 const UserNotRegisteredError = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-white to-slate-50">
-      <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-lg border border-slate-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-white to-slate-50 relative">
+      {/* Subtle grid background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+        }}
+      />
+      <div className="relative max-w-md w-full p-8 bg-white rounded-lg shadow-lg border border-slate-100">
         <div className="text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-orange-100">
             <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

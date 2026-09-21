@@ -27,8 +27,8 @@ export default function Showcase() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden py-24 md:py-32 bg-[#101012]">
-      {/* Parallax grid background */}
+    <section ref={sectionRef} className="relative overflow-hidden py-24 md:py-32">
+      {/* Parallax grid background - higher opacity for visual interest */}
       <div
         ref={bgRef}
         className="absolute inset-0 -top-1/2 -bottom-1/2 pointer-events-none will-change-transform"
@@ -53,9 +53,9 @@ export default function Showcase() {
           {SHOTS.map((s, i) => (
             <li
               key={s.src}
-              className={`phone-item snap-center shrink-0 w-[70%] sm:w-[44%] md:w-auto ${i % 2 ? "md:mt-10" : ""}`}
+              className="phone-item snap-center shrink-0 w-[70%] sm:w-[44%] md:w-auto"
             >
-              <div className="phone-frame relative rounded-[2.25rem] bg-black p-[6px] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.45)] ring-1 ring-white/10">
+              <div className="phone-frame relative rounded-[2.25rem] bg-black p-[6px] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.45)] border border-white/10 ring-1 ring-white/5">
                 {/* Notch */}
                 <div className="absolute top-[6px] left-1/2 -translate-x-1/2 w-[28%] h-5 bg-black rounded-b-[14px] z-20" />
                 {/* Screen — uniform aspect ratio, cropped */}

@@ -4,7 +4,7 @@ import RadioFeed from "./RadioFeed";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative min-h-[100svh] flex items-center overflow-hidden pt-16 bg-[#101012]">
+    <section id="top" className="relative min-h-[100svh] flex items-center overflow-hidden pt-16">
       {/* Subtle grid background */}
       <div
         className="absolute inset-0 pointer-events-none"
