@@ -5,6 +5,8 @@ import Features from "@/Features";
 import Showcase from "@/Showcase";
 import PitWall from "@/PitWall";
 import Footer from "@/Footer";
+import SocialProof from "@/SocialProof";
+import PhotoGallery from "@/PhotoGallery";
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
@@ -59,6 +61,9 @@ export default function Home() {
       <div className="relative z-10">
         <Nav />
         <Hero />
+        <div className="w-full border-t border-white/10" />
+        <SocialProof />
+        <PhotoGallery />
         <Showcase />
         <Features />
         <Footer />
