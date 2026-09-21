@@ -44,11 +44,11 @@ const ROADMAP = [
       {
         title: "Community features",
         when: "Q4 2026",
-        body: "Leaderboards, achievements and social features built on the share feature, with race comparisons and challenges.",
+        body: "Leaderboards, achievements, and social features built on the share feature with race comparisons.",
       },
       {
-        title: "Tester feedback and polish",
-        body: "Working through what closed testers tell us before the public launch.",
+        title: "Tester feedback",
+        body: "Working through closed tester feedback before public launch.",
       },
     ],
   },
@@ -59,16 +59,16 @@ const ROADMAP = [
     items: [
       {
         title: "Public launch",
-        body: "Release on Google Play once tester feedback is in and the final polish is done.",
+        body: "Release on Google Play after tester feedback and final polish.",
       },
       {
         title: "Web version",
-        body: "A browser version for desktop and laptop users.",
+        body: "Browser version for desktop and laptop users.",
       },
       {
-        title: "Building the brand",
+        title: "Brand partnerships",
         when: "Q4 2026",
-        body: "Partnerships with drivers, teams, photographers and motorsport creators, plus our first RaceSense ambassadors.",
+        body: "Partnerships with drivers, teams, and motorsport creators.",
       },
     ],
   },
@@ -78,14 +78,14 @@ const ROADMAP = [
     hex: "#8E8E93",
     items: [
       {
-        title: "Smarter race engineering",
+        title: "AI race engineering",
         when: "2027",
-        body: "Moving beyond today's rule-based system, so RaceSense knows more about what's happening in a race and its callouts get more useful.",
+        body: "Beyond rule-based systems for smarter race insights and callouts.",
       },
       {
-        title: "The race engineer in your pocket",
+        title: "Pocket engineer",
         when: "Long term",
-        body: "An intelligent race engineering platform that helps drivers understand what's happening on track and decide better, without a full race engineering team.",
+        body: "Full race engineering platform accessible without a full team.",
       },
     ],
   },
@@ -213,26 +213,26 @@ export default function Updates() {
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-semibold tracking-[-0.02em] text-[#F4F4F9]">Roadmap</h2>
 
-          <div className="mt-10 grid md:grid-cols-3 gap-10">
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
             {ROADMAP.map((col) => (
-              <div key={col.name} className="border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03] overflow-hidden">
-                <div className="h-1.5" style={{ backgroundColor: col.hex }} />
-                <div className="p-5">
-                  <h3 className="text-xl font-semibold text-[#F4F4F9]">{col.name}</h3>
-                  <p className="text-[13px] text-[#8E8E93]">{col.sub}</p>
+              <div key={col.name} className="border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03] overflow-hidden flex flex-col">
+                <div className="h-1.5 shrink-0" style={{ backgroundColor: col.hex }} />
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="text-lg font-semibold text-[#F4F4F9]">{col.name}</h3>
+                  <p className="text-[12px] text-[#8E8E93]">{col.sub}</p>
 
-                  <ul className="mt-4 divide-y divide-white/10">
+                  <ul className="mt-4 divide-y divide-white/10 flex-1">
                     {col.items.map((it) => (
-                      <li key={it.title} className="py-4">
-                        <div className="flex items-baseline justify-between gap-3">
-                          <h4 className="font-medium text-[#F4F4F9]">{it.title}</h4>
+                      <li key={it.title} className="py-3">
+                        <div className="flex items-baseline justify-between gap-2">
+                          <h4 className="font-medium text-[#F4F4F9] text-sm">{it.title}</h4>
                           {it.when && (
-                            <span className="font-jetbrains text-[12px] text-[#8E8E93] shrink-0">
+                            <span className="font-jetbrains text-[11px] text-[#8E8E93] shrink-0">
                               {it.when}
                             </span>
                           )}
                         </div>
-                        <p className="mt-1 text-[14px] leading-[1.6] text-[#a9a9b0]">{it.body}</p>
+                        <p className="mt-1 text-[13px] leading-[1.5] text-[#a9a9b0]">{it.body}</p>
                       </li>
                     ))}
                   </ul>

@@ -91,3 +91,21 @@
   }
 }
 
+/* Phone hover animations */
+.phone-item {
+  transition: transform 0.3s ease-out;
+}
+
+.phone-item:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.phone-frame {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.phone-item:hover .phone-frame {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(204, 255, 0, 0.1);
+  border-color: rgba(204, 255, 0, 0.3);
+}
+

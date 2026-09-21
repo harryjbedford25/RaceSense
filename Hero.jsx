@@ -33,18 +33,20 @@ export default function Hero() {
               times and gaps as you drive, so you know what worked while you're still on track.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link
-                to="/#grid"
+              <a
+                href="https://play.google.com/store"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-mono text-[12px] tracking-[0.2em] uppercase bg-[#ccff00] text-black px-7 py-4 hover:bg-white transition-colors text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Get early access
-              </Link>
-              <a
-                href="#features"
+                Get on Play Store
+              </a>
+              <Link
+                to="/updates"
                 className="font-mono text-[12px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-7 py-4 hover:border-[#ccff00] hover:text-[#ccff00] transition-colors text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                What it says
-              </a>
+                View Updates
+              </Link>
             </div>
           </div>
 
