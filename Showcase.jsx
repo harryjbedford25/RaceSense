@@ -64,11 +64,17 @@ export default function Showcase() {
               key={s.src}
               className="phone-item snap-center shrink-0 w-[70%] sm:w-[44%] md:w-auto"
             >
-              <div className="phone-frame relative rounded-[2.25rem] bg-black p-[6px] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.45)] border border-white/10 ring-1 ring-white/5">
+              <div className="phone-frame relative rounded-[2.25rem] bg-[#1a1a1e] p-[3px] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.45)] border border-white/10 ring-1 ring-white/5">
+                {/* Side buttons */}
+                <div className="absolute left-0 top-1/3 w-0.5 h-8 bg-gradient-to-b from-[#2a2a2e] to-[#1a1a1e] rounded-l-sm" />
+                <div className="absolute right-0 top-1/3 w-0.5 h-12 bg-gradient-to-b from-[#2a2a2e] to-[#1a1a1e] rounded-r-sm" />
+                <div className="absolute right-0 top-2/3 w-0.5 h-8 bg-gradient-to-b from-[#2a2a2e] to-[#1a1a1e] rounded-r-sm" />
                 {/* Notch */}
-                <div className="absolute top-[6px] left-1/2 -translate-x-1/2 w-[28%] h-5 bg-black rounded-b-[14px] z-20" />
+                <div className="absolute top-[3px] left-1/2 -translate-x-1/2 w-[32%] h-6 bg-[#0d0d0f] rounded-b-[18px] z-20 flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#2a2a2e]" />
+                </div>
                 {/* Screen — uniform aspect ratio, cropped */}
-                <div className="aspect-[9/19.5] overflow-hidden rounded-[1.75rem] bg-black">
+                <div className="aspect-[9/19.5] overflow-hidden rounded-[1.5rem] bg-[#0d0d0f]">
                   <img
                     src={s.src}
                     alt={s.alt}

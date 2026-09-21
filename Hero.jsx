@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RadioFeed from "./RadioFeed";
 
 export default function Hero() {
   return (
@@ -51,7 +50,7 @@ export default function Hero() {
           </div>
 
           <div className="flex lg:justify-end">
-            <RadioFeed />
+            <img src="/Screenshots/mockup.png" alt="RaceSense mockup" className="w-[80vw] max-w-[60rem] rounded-lg" />
           </div>
         </div>
       </div>
