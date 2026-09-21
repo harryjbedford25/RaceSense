@@ -19,7 +19,7 @@ export default function PhotoGallery() {
             Gallery
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.1] text-[#F4F4F9]">
-            RaceSense in action
+            Add your best monthly karting photos
           </h2>
         </div>
 

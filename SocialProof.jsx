@@ -16,13 +16,13 @@ export default function SocialProof() {
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center">
           <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93] mb-6">
-            Social Proof
+            Community
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.1] text-[#F4F4F9] mb-4">
-            Racers are already interested
+            Growing interest
           </h2>
           <p className="text-[15px] leading-[1.6] text-[#a9a9b0] max-w-2xl mx-auto mb-12">
-            The racing community is talking about RaceSense. Here's what we've seen so far.
+            The racing community is showing interest in RaceSense. Here's what we've seen so far.
           </p>
 
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
