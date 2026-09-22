@@ -19,6 +19,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://racesense.info/faq</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://racesense.info/legal</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>

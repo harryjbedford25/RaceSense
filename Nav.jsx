@@ -16,6 +16,7 @@ export default function Nav() {
           <Link to="/" className="hover:text-[#ccff00] transition-colors">Overview</Link>
           <Link to="/about" className="hover:text-[#ccff00] transition-colors">About</Link>
           <Link to="/updates" className="hover:text-[#ccff00] transition-colors">Updates</Link>
+          <Link to="/faq" className="hover:text-[#ccff00] transition-colors">FAQ</Link>
         </nav>
         <a
           href={CONTACT_INSTAGRAM}
