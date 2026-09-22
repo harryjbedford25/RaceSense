@@ -19,16 +19,9 @@ export default function Hero() {
       <div className="relative mx-auto px-4 py-12 md:px-6 md:py-16 w-full">
         <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-12 items-center">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-[#ccff00]/10 flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#ccff00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ccff00]">
-                // Live readout
-              </p>
-            </div>
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ccff00] mb-4">
+              // Live readout
+            </p>
             <h1 className="text-[clamp(2.25rem,9vw,4rem)] leading-[0.9] font-semibold tracking-[-0.03em] text-[#F4F4F9]">
               A race engineer
               <br />

@@ -30,10 +30,6 @@ const FAQS = [
   {
     question: "Is RaceSense free?",
     answer: "RaceSense will be available for download on Google Play. Check the app store for current pricing and availability as we approach launch."
-  },
-  {
-    question: "Does RaceSense work offline?",
-    answer: "RaceSense includes offline capabilities, allowing you to use the app's core features even without internet connectivity at the track."
   }
 ];
 
