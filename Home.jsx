@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import Nav from "@/Nav";
 import Hero from "@/Hero";
 import Features from "@/Features";
@@ -65,6 +66,22 @@ export default function Home() {
         <PhotoGallery />
         <Showcase />
         <Features />
+        <section className="py-16">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h2 className="text-2xl font-semibold tracking-[-0.02em] text-[#F4F4F9] mb-4">
+              Have questions?
+            </h2>
+            <p className="text-[15px] leading-[1.6] text-[#a9a9b0] mb-8">
+              Learn more about RaceSense and how it can improve your karting performance.
+            </p>
+            <Link
+              to="/faq"
+              className="font-mono text-[12px] tracking-[0.2em] uppercase border border-white/25 text-[#F4F4F9] px-6 py-3 hover:border-[#ccff00] hover:text-[#ccff00] transition-colors inline-block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              View FAQ
+            </Link>
+          </div>
+        </section>
         <Footer />
       </div>
     </div>
