@@ -27,10 +27,12 @@ export default function Hero() {
               <br />
               in your ear.
             </h1>
-            <p className="mt-6 text-[15px] leading-[1.5] text-[#c9c9d0]">
-              Most racers can't tell when they're getting quicker. RaceSense reads out your lap
-              times and gaps as you drive, so you know what worked while you're still on track.
-            </p>
+            <div className="mt-6 border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03] p-5">
+              <p className="text-[15px] leading-[1.5] text-[#c9c9d0]">
+                Most racers can't tell when they're getting quicker. RaceSense reads out your lap
+                times and gaps as you drive, so you know what worked while you're still on track.
+              </p>
+            </div>
             <div className="mt-8 flex flex-col sm:flex-row gap-2 sm:gap-3">
               <a
                 href="https://play.google.com/store"
