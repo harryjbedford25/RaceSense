@@ -42,7 +42,7 @@ export default function About() {
 
             <div className="border-t border-white/10 pt-12">
               <blockquote className="text-2xl md:text-4xl font-medium leading-[1.3] tracking-tight text-[#F4F4F9]">
-                "RaceSense started with a simple idea: knowing which lines are faster shouldn't be guesswork. I wanted a way to connect lap times with what was actually happening on track, and between us, we turned that idea into a race engineer that gives useful feedback, lap by lap."
+                "RaceSense App started with a simple idea: knowing which lines are faster shouldn't be guesswork. I wanted a way to connect lap times with what was actually happening on track, and between us, we turned that idea into a mobile race engineer that gives useful feedback, lap by lap. RaceSense App is a mobile software application and is not affiliated with RaceSense tyre gauges or Fastmate Racing."
               </blockquote>
 
               <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10 font-mono text-[11px] tracking-[0.2em] uppercase text-[#8E8E93]">

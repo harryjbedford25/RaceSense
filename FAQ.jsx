@@ -1,35 +1,40 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
 const FAQS = [
   {
     question: "What is RaceSense app?",
-    answer: "RaceSense is a virtual race engineer app for karting that provides real-time in-ear callouts about lap times and gaps while you're on track. It acts like having a professional race engineer coaching you during your sessions."
+    answer: "RaceSense App is a mobile application for karting that provides real-time lap analysis and voice coaching. It is a software app for Android devices that gives in-ear callouts about lap times and gaps while you're on track. RaceSense App is not a tyre gauge and is not affiliated with RaceSense tyre gauges, Fastmate Racing, or Swimovate Limited."
+  },
+  {
+    question: "Is RaceSense App related to RaceSense tyre gauges?",
+    answer: "No. RaceSense App is a completely independent mobile software application for karting lap analysis. It is not related to, affiliated with, or connected to RaceSense tyre gauges, Fastmate Racing, or Swimovate Limited. We are a separate company focused on mobile apps for motorsport coaching."
   },
   {
     question: "How does RaceSense improve lap times?",
-    answer: "RaceSense gives you immediate feedback on your performance through real-time lap time callouts and gap analysis. This helps you identify what's working while you're still on track, allowing you to make adjustments and improve your racing lines instantly."
+    answer: "RaceSense App gives you immediate feedback on your performance through real-time lap time callouts and gap analysis. This helps you identify what's working while you're still on track, allowing you to make adjustments and improve your racing lines instantly through your smartphone."
   },
   {
     question: "Is RaceSense available for iOS?",
-    answer: "RaceSense is currently in final development for Android and will be available on Google Play soon. We're working on bringing the app to iOS in the future."
+    answer: "RaceSense App is currently in final development for Android and will be available on Google Play soon. We're working on bringing the app to iOS in the future."
   },
   {
     question: "What devices work with RaceSense?",
-    answer: "RaceSense is designed for Android devices and requires a smartphone for real-time audio callouts during racing sessions."
+    answer: "RaceSense App is designed for Android devices and requires a smartphone for real-time audio callouts during racing sessions. It is a mobile application, not hardware."
   },
   {
     question: "How does the in-ear coaching work?",
-    answer: "RaceSense uses your phone's audio to provide real-time voice callouts about your lap times, sector splits, and gaps to other drivers. This hands-free coaching lets you focus on driving while getting professional feedback."
+    answer: "RaceSense App uses your phone's audio to provide real-time voice callouts about your lap times, sector splits, and gaps to other drivers. This hands-free coaching lets you focus on driving while getting professional feedback through your smartphone."
   },
   {
     question: "Can RaceSense track multiple laps?",
-    answer: "Yes, RaceSense tracks your entire session, providing lap-by-lap analysis and historical data so you can see your progress over time and identify trends in your performance."
+    answer: "Yes, RaceSense App tracks your entire session, providing lap-by-lap analysis and historical data so you can see your progress over time and identify trends in your performance."
   },
   {
     question: "Is RaceSense free?",
-    answer: "RaceSense will be available for download on Google Play. Check the app store for current pricing and availability as we approach launch."
+    answer: "RaceSense App will be available for download on Google Play. Check the app store for current pricing and availability as we approach launch."
   }
 ];
 
@@ -74,6 +79,21 @@ export default function FAQ() {
                   </p>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-12 border border-[#ccff00]/20 ring-1 ring-[#ccff00]/10 rounded-2xl bg-[#ccff00]/5 p-6">
+              <h3 className="text-lg font-semibold tracking-[-0.02em] text-[#ccff00] mb-3">
+                Important Note
+              </h3>
+              <p className="text-[15px] leading-[1.6] text-[#F4F4F9] mb-4">
+                RaceSense App is a mobile software application and is not affiliated with RaceSense tyre gauges, Fastmate Racing, or Swimovate Limited.
+              </p>
+              <Link
+                to="/disambiguation"
+                className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ccff00] hover:text-white transition-colors"
+              >
+                Learn more about the difference →
+              </Link>
             </div>
           </div>
         </section>

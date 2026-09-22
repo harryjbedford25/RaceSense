@@ -29,7 +29,7 @@ export default function Hero() {
             </h1>
             <div className="mt-6 border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03] p-5">
               <p className="text-[15px] leading-[1.5] text-[#c9c9d0]">
-                Kart racer on the grid at golden hour. Our virtual race engineer gives real-time in ear callouts about laptimes and gaps. The app is in final development and coming soon to Google Play.
+                Kart racer on the grid at golden hour. Our virtual race engineer gives real-time in ear callouts about laptimes and gaps. The app is in final development and coming soon to Google Play. RaceSense App is a mobile application for karting lap analysis and is not affiliated with RaceSense tyre gauges or Fastmate Racing.
               </p>
             </div>
             <div className="mt-8 flex flex-col sm:flex-row gap-2 sm:gap-3">
