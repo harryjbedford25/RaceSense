@@ -26,35 +26,37 @@ export default function PhotoGallery() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="col-span-2 row-span-2">
             <img 
-              src="/Final_1-10.jpg" 
+              src="/golden-hour.jpg" 
               alt="RaceSense in action" 
               className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
             />
+            <p className="text-[10px] text-[#8E8E93] mt-2 text-center">Photo: Barns Photographic</p>
           </div>
           <div className="col-span-1 row-span-1">
             <img 
-              src="/kmr4.jpg" 
+              src="/racing-action.jpg" 
               alt="RaceSense dashboard" 
               className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
             />
+            <p className="text-[10px] text-[#8E8E93] mt-2 text-center">Photo: Barns Photographic</p>
           </div>
           <div className="col-span-1 row-span-1">
             <img 
-              src="/1000029638.jpg" 
+              src="/track-action.jpg" 
               alt="RaceSense features" 
               className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
             />
           </div>
           <div className="col-span-1 row-span-1">
             <img 
-              src="/20260903_134045.jpg" 
+              src="/kart-session.jpg" 
               alt="RaceSense mobile" 
               className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
             />
           </div>
           <div className="col-span-1 row-span-1">
             <img 
-              src="/Screenshot_20260127_211125_Chrome.jpg" 
+              src="/dashboard-view.jpg" 
               alt="RaceSense analytics" 
               className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
             />
