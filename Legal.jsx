@@ -30,7 +30,7 @@ export default function Legal() {
               </p>
 
               <p>
-                These Terms & Conditions govern your use of RaceSense App ("RaceSense", "we", "us", or "our"), a mobile application for karting lap analysis and coaching. RaceSense App is a mobile software application and is not affiliated with RaceSense tyre gauges, Fastmate Racing, or Swimovate Limited.
+                These Terms & Conditions govern your use of RaceSense App ("RaceSense", "we", "us", or "our"), a mobile application for karting lap analysis and coaching. RaceSense App is a mobile software application and is not affiliated with RaceSense tyre gauges, Fastmate Racing, Swimovate Limited, or Paddiq.
               </p>
 
               <p>
@@ -117,7 +117,7 @@ export default function Legal() {
                   You may not copy, reproduce, modify, redistribute, reverse engineer, resell or commercially exploit RaceSense App without our permission, except where permitted by law.
                 </p>
                 <p>
-                  RaceSense App is not affiliated with RaceSense tyre gauges, Fastmate Racing, or Swimovate Limited.
+                  RaceSense App is not affiliated with RaceSense tyre gauges, Fastmate Racing, Swimovate Limited, or Paddiq.
                 </p>
               </div>
 
@@ -436,7 +436,7 @@ export default function Legal() {
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-[#F4F4F9]">Brand Disclaimer</h3>
                 <p>
-                  RaceSense App is a mobile software application and is not affiliated with, connected to, or related to RaceSense tyre gauges, Fastmate Racing, or Swimovate Limited. We are separate companies with different products.
+                  RaceSense App is a mobile software application and is not affiliated with, connected to, or related to RaceSense tyre gauges, Fastmate Racing, Swimovate Limited, or Paddiq. We are separate companies with different products.
                 </p>
               </div>
             </div>

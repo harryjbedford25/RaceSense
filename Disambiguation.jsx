@@ -59,12 +59,24 @@ export default function Disambiguation() {
               </div>
             </div>
 
+            <div className="border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03] p-6 mb-12">
+              <h2 className="text-2xl font-semibold tracking-[-0.02em] text-[#8E8E93] mb-4">
+                Paddiq
+              </h2>
+              <ul className="space-y-3 text-[15px] leading-[1.6] text-[#a9a9b0]">
+                <li>• Separate karting application</li>
+                <li>• Different company and product</li>
+                <li>• Not affiliated with RaceSense App</li>
+                <li>• RaceSense App is independent from Paddiq</li>
+              </ul>
+            </div>
+
             <div className="border border-white/10 ring-1 ring-white/5 rounded-2xl bg-white/[0.03] p-6">
               <h3 className="text-xl font-semibold tracking-[-0.02em] text-[#F4F4F9] mb-4">
                 No Affiliation
               </h3>
               <p className="text-[15px] leading-[1.6] text-[#a9a9b0]">
-                RaceSense App is completely independent and not affiliated with, connected to, or related to RaceSense tyre gauges, Fastmate Racing, or Swimovate Limited. We are separate companies with different products. RaceSense App is a mobile software application for karting lap analysis, while RaceSense tyre gauges are physical devices for measuring tyre pressure.
+                RaceSense App is completely independent and not affiliated with, connected to, or related to RaceSense tyre gauges, Fastmate Racing, Swimovate Limited, or Paddiq. We are separate companies with different products. RaceSense App is a mobile software application for karting lap analysis, while RaceSense tyre gauges are physical devices for measuring tyre pressure and Paddiq is a separate karting application.
               </p>
             </div>
           </div>

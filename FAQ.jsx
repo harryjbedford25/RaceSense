@@ -6,11 +6,15 @@ import Footer from "./Footer";
 const FAQS = [
   {
     question: "What is RaceSense app?",
-    answer: "RaceSense App is a mobile application for karting that provides real-time lap analysis and voice coaching. It is a software app for Android devices that gives in-ear callouts about lap times and gaps while you're on track. RaceSense App is not a tyre gauge and is not affiliated with RaceSense tyre gauges, Fastmate Racing, or Swimovate Limited."
+    answer: "RaceSense App is a mobile application for karting that provides real-time lap analysis and voice coaching. It is a software app for Android devices that gives in-ear callouts about lap times and gaps while you're on track."
   },
   {
     question: "Is RaceSense App related to RaceSense tyre gauges?",
     answer: "No. RaceSense App is a completely independent mobile software application for karting lap analysis. It is not related to, affiliated with, or connected to RaceSense tyre gauges, Fastmate Racing, or Swimovate Limited. We are a separate company focused on mobile apps for motorsport coaching."
+  },
+  {
+    question: "Is RaceSense App related to Paddiq?",
+    answer: "No. RaceSense App is not affiliated with, connected to, or related to Paddiq. RaceSense App is an independent mobile application for karting lap analysis and coaching. We are separate products from different companies."
   },
   {
     question: "How does RaceSense improve lap times?",
@@ -86,7 +90,7 @@ export default function FAQ() {
                 Important Note
               </h3>
               <p className="text-[15px] leading-[1.6] text-[#F4F4F9] mb-4">
-                RaceSense App is a mobile software application and is not affiliated with RaceSense tyre gauges, Fastmate Racing, or Swimovate Limited.
+                RaceSense App is a mobile software application and is not affiliated with RaceSense tyre gauges, Fastmate Racing, Swimovate Limited, or Paddiq.
               </p>
               <Link
                 to="/disambiguation"
