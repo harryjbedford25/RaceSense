@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import Breadcrumbs from "./Breadcrumbs";
 
 const UPDATES = [
   {
@@ -52,6 +52,14 @@ const ROADMAP = [
 ];
 
 export default function Updates() {
+  useEffect(() => {
+    document.title = "Updates & Roadmap - RaceSense App | Virtual Race Engineer for Karting";
+    document.querySelector('meta[name="description"]')?.setAttribute(
+      "content",
+      "Track RaceSense App development progress, latest updates, and future roadmap. See what's new with the virtual race engineer for karting."
+    );
+  }, []);
+
   return (
     <div className="bg-[#101012] min-h-screen relative">
       {/* Subtle grid background */}
@@ -65,9 +73,10 @@ export default function Updates() {
       />
       <div className="relative">
         <Nav />
+        <Breadcrumbs />
 
         {/* Header */}
-        <section className="pt-32 pb-16">
+        <section className="pt-8 pb-16">
           <div className="max-w-6xl mx-auto px-6">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ccff00] mb-4">
               Updates

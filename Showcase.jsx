@@ -57,6 +57,7 @@ export default function Showcase() {
           <img
             src="/Screenshots/phones.png"
             alt="RaceSense phones"
+            loading="lazy"
             className="max-w-[60rem] rounded-lg"
           />
         </div>

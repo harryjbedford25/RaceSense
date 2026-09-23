@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default function Disambiguation() {
+  useEffect(() => {
+    document.title = "RaceSense App vs Competitors | Disambiguation";
+    document.querySelector('meta[name="description"]')?.setAttribute(
+      "content",
+      "Clarify the difference between RaceSense App and other products. RaceSense App is a mobile application for karting and is not affiliated with RaceSense tyre gauges, Fastmate Racing, Swimovate Limited, or Paddiq."
+    );
+  }, []);
+
   return (
     <div className="bg-[#101012] min-h-screen relative">
       {/* Subtle grid background */}
@@ -16,8 +25,9 @@ export default function Disambiguation() {
       />
       <div className="relative">
         <Nav />
+        <Breadcrumbs />
 
-        <section className="pt-32 pb-20">
+        <section className="pt-8 pb-20">
           <div className="max-w-4xl mx-auto px-6">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ccff00] mb-4">
               Important Notice

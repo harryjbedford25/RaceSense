@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import Breadcrumbs from "./Breadcrumbs";
 
 const FAQS = [
   {
@@ -43,6 +44,14 @@ const FAQS = [
 ];
 
 export default function FAQ() {
+  useEffect(() => {
+    document.title = "FAQ - RaceSense App | Virtual Race Engineer for Karting";
+    document.querySelector('meta[name="description"]')?.setAttribute(
+      "content",
+      "Frequently asked questions about RaceSense App - the virtual race engineer for karting. Learn about features, compatibility, and how our mobile app improves your lap times."
+    );
+  }, []);
+
   return (
     <div className="bg-[#101012] min-h-screen relative">
       {/* Subtle grid background */}
@@ -56,8 +65,9 @@ export default function FAQ() {
       />
       <div className="relative">
         <Nav />
+        <Breadcrumbs />
 
-        <section className="pt-32 pb-20">
+        <section className="pt-8 pb-20">
           <div className="max-w-4xl mx-auto px-6">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#ccff00] mb-4">
               FAQ

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import Breadcrumbs from "./Breadcrumbs";
 
 const TESTIMONIALS = [
   {
@@ -21,6 +22,14 @@ const TESTIMONIALS = [
 ];
 
 export default function About() {
+  useEffect(() => {
+    document.title = "About RaceSense App - Our Story | Virtual Race Engineer for Karting";
+    document.querySelector('meta[name="description"]')?.setAttribute(
+      "content",
+      "Learn about RaceSense App - our story, mission, and the team behind the virtual race engineer for karting. Built by racers, for racers."
+    );
+  }, []);
+
   return (
     <div className="bg-[#101012] min-h-screen relative">
       {/* Subtle grid background */}
@@ -34,7 +43,8 @@ export default function About() {
       />
       <div className="relative">
         <Nav />
-        <section className="pt-32 pb-20">
+        <Breadcrumbs />
+        <section className="pt-8 pb-20">
           <div className="max-w-5xl mx-auto px-6">
             <h1 className="font-mono text-[12px] tracking-[0.3em] uppercase text-[#ccff00] mb-8">
               Our Story

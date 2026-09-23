@@ -25,41 +25,71 @@ export default function PhotoGallery() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="col-span-2 row-span-2">
-            <img 
-              src="/golden-hour.jpg" 
-              alt="RaceSense in action" 
-              className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
-            />
+            <picture>
+              <source srcSet="/golden-hour.webp" type="image/webp" />
+              <img 
+                src="/golden-hour.jpg" 
+                alt="RaceSense in action" 
+                loading="lazy"
+                width="800"
+                height="600"
+                className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
+              />
+            </picture>
             <p className="text-[10px] text-[#8E8E93] mt-2 text-center">Photo: Barns Photographic</p>
           </div>
           <div className="col-span-1 row-span-1">
-            <img 
-              src="/racing-action.jpg" 
-              alt="RaceSense dashboard" 
-              className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
-            />
+            <picture>
+              <source srcSet="/racing-action.webp" type="image/webp" />
+              <img 
+                src="/racing-action.jpg" 
+                alt="RaceSense dashboard" 
+                loading="lazy"
+                width="400"
+                height="300"
+                className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
+              />
+            </picture>
             <p className="text-[10px] text-[#8E8E93] mt-2 text-center">Photo: Barns Photographic</p>
           </div>
           <div className="col-span-1 row-span-1">
-            <img 
-              src="/track-action.jpg" 
-              alt="RaceSense features" 
-              className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
-            />
+            <picture>
+              <source srcSet="/track-action.webp" type="image/webp" />
+              <img 
+                src="/track-action.jpg" 
+                alt="RaceSense features" 
+                loading="lazy"
+                width="400"
+                height="300"
+                className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
+              />
+            </picture>
           </div>
           <div className="col-span-1 row-span-1">
-            <img 
-              src="/kart-session.jpg" 
-              alt="RaceSense mobile" 
-              className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
-            />
+            <picture>
+              <source srcSet="/kart-session.webp" type="image/webp" />
+              <img 
+                src="/kart-session.jpg" 
+                alt="RaceSense mobile" 
+                loading="lazy"
+                width="400"
+                height="300"
+                className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
+              />
+            </picture>
           </div>
           <div className="col-span-1 row-span-1">
-            <img 
-              src="/dashboard-view.jpg" 
-              alt="RaceSense analytics" 
-              className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
-            />
+            <picture>
+              <source srcSet="/dashboard-view.webp" type="image/webp" />
+              <img 
+                src="/dashboard-view.jpg" 
+                alt="RaceSense analytics" 
+                loading="lazy"
+                width="400"
+                height="300"
+                className="w-full h-full object-cover rounded-2xl border border-white/10 ring-1 ring-white/5"
+              />
+            </picture>
           </div>
         </div>
 

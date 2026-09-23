@@ -1,3 +1,10 @@
 User-agent: *
 Allow: /
 Sitemap: https://racesense.info/sitemap.xml
+
+# Image optimization
+User-agent: Googlebot-Image
+Allow: /
+
+# Crawl delay to prevent overloading
+Crawl-delay: 1

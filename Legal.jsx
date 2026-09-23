@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default function Legal() {
+  useEffect(() => {
+    document.title = "Legal Information - RaceSense App | Terms, Privacy & Cookies";
+    document.querySelector('meta[name="description"]')?.setAttribute(
+      "content",
+      "RaceSense App legal information including terms & conditions, privacy policy, cookie policy, and disclaimers. Learn about your rights and our data protection practices."
+    );
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#101012] text-[#F4F4F9] relative">
       {/* Subtle grid background */}
@@ -16,7 +25,9 @@ export default function Legal() {
       />
       <div className="relative">
         <Nav />
-        <div className="max-w-4xl mx-auto px-6 py-20 pt-32">
+        <Breadcrumbs />
+
+        <div className="max-w-4xl mx-auto px-6 py-20 pt-8">
         <h1 className="font-mono text-[12px] tracking-[0.3em] uppercase text-[#ccff00] mb-8">
           Legal Information
         </h1>
