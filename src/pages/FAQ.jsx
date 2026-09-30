@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import NavHUD from "@/components/racesense/NavHUD";
 
 const FAQS = [
   {
@@ -56,14 +57,16 @@ export default function FAQ() {
   };
 
   return (
-    <section className="relative bg-background py-20 sm:py-28">
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={containerVariants}
-        className="px-6 sm:px-10 max-w-4xl mx-auto"
-      >
+    <div className="relative bg-background text-foreground">
+      <NavHUD />
+      <section className="pt-20 py-20 sm:py-28">
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={containerVariants}
+          className="px-6 sm:px-10 max-w-4xl mx-auto"
+        >
         <motion.div variants={itemVariants} className="font-mono text-[10px] tracking-[0.3em] text-primary mb-4">
           // FAQ
         </motion.div>
@@ -121,6 +124,7 @@ export default function FAQ() {
           </a>
         </motion.div>
       </motion.div>
-    </section>
+      </section>
+    </div>
   );
 }

@@ -9,7 +9,7 @@ import TelemetryRibbon from "@/components/racesense/TelemetryRibbon";
 
 export default function Home() {
   return (
-    <main className="relative bg-background text-foreground">
+    <main className="relative bg-background text-foreground pt-16">
       <TelemetryRibbon />
       <Hero />
       <CapabilityGrid />
