@@ -7,19 +7,19 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://racesense.info/faq</loc>
+    <loc>https://racesense.info/#/faq</loc>
     <lastmod>2024-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://racesense.info/privacy</loc>
+    <loc>https://racesense.info/#/privacy</loc>
     <lastmod>2024-09-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://racesense.info/terms</loc>
+    <loc>https://racesense.info/#/terms</loc>
     <lastmod>2024-09-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
