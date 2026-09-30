@@ -25,7 +25,6 @@ jobs:
       - name: Build
         run: npm run build
 
- HEAD
       - name: Deploy to Cloudflare
         run: npx wrangler deploy
 
