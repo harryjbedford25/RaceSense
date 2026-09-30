@@ -9,9 +9,9 @@ const LINKS = [
 ];
 
 const LEGAL_LINKS = [
-  { label: "FAQ", href: "/faq" },
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
+  { label: "FAQ", href: "#/faq" },
+  { label: "Privacy", href: "#/privacy" },
+  { label: "Terms", href: "#/terms" },
 ];
 
 export default function NavHUD() {
