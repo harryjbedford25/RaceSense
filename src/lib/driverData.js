@@ -127,6 +127,12 @@ export async function saveDriverProfile(driverId, input) {
     return data;
   }
 
+  // Add created_by_id for new drivers
+  const user = await getViewer();
+  if (user) {
+    payload.created_by_id = user.id;
+  }
+
   const { data, error } = await supabase
     .from('drivers')
     .insert(payload)

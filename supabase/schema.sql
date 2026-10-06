@@ -74,9 +74,9 @@ CREATE POLICY "Anyone can view drivers"
   ON public.drivers FOR SELECT
   USING (true);
 
-CREATE POLICY "Users can create their own driver"
+CREATE POLICY "Authenticated users can create driver"
   ON public.drivers FOR INSERT
-  WITH CHECK (auth.uid() = created_by_id);
+  WITH CHECK (auth.uid() = created_by_id OR created_by_id IS NULL);
 
 CREATE POLICY "Users can update their own driver"
   ON public.drivers FOR UPDATE

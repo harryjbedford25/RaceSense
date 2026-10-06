@@ -8,7 +8,7 @@ const HERO_IMG = "/heroImage.webp";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative scroll-mt-24 px-6 pb-14 pt-28 sm:px-10 sm:pb-24 sm:pt-40">
+    <section id="hero" className="relative scroll-mt-24 px-6 pb-32 pt-28 sm:px-10 sm:pb-40 sm:pt-40">
       <ArcMotif
         cols={6}
         rows={5}
