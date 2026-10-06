@@ -14,7 +14,7 @@ A modern driver profile platform built with React, Vite, Supabase, and deployed 
 
 - **Frontend**: React 18, Vite, React Router
 - **Backend**: Supabase (PostgreSQL database, Auth, Storage)
-- **Deployment**: Cloudflare Workers Sites
+- **Deployment**: Cloudflare Pages
 - **Styling**: Tailwind CSS, Radix UI components
 - **State Management**: React Query (TanStack Query)
 
@@ -90,18 +90,15 @@ src/
 
 ## Deployment
 
-### Deploy to Cloudflare Workers Sites
+### Deploy to Cloudflare Pages
 
-Follow the [Deployment Guide](./DEPLOYMENT.md) to:
-- Install and configure Wrangler CLI
-- Set up environment variables
-- Deploy locally or to production
-- Set up GitHub Actions for automatic deployments
+Follow the [Cloudflare Pages Guide](./CLOUDFLARE_PAGES.md) to:
+- Connect your GitHub repository
+- Configure build settings
+- Add environment variables
+- Enable automatic deployments
 
-Quick deploy:
-```bash
-npm run deploy
-```
+The deployment is fully automated - every push to GitHub triggers a new deployment.
 
 ## Database Schema
 

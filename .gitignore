@@ -21,6 +21,10 @@ dist-ssr
 # every build, and the deploy runs one before reading them.
 .output
 
+# Old Base44 files
+public/bottomImage_files/
+public/bottomImage.html
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

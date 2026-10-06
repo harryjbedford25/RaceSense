@@ -1,21 +1,2 @@
-name = "racesense"
-compatibility_date = "2024-01-01"
-main = "src/worker.js"
-
-[site]
-bucket = "./dist"
-
-[build]
-command = "npm run build"
-
-[vars]
-VITE_SUPABASE_URL = ""
-VITE_SUPABASE_ANON_KEY = ""
-
-[env.production]
-[env.production.build]
-command = "npm run build"
-
-[env.production.vars]
-VITE_SUPABASE_URL = ""
-VITE_SUPABASE_ANON_KEY = ""
+# This file is for Cloudflare Workers. For Cloudflare Pages, use the dashboard settings.
+# Cloudflare Pages is recommended for GitHub integration with environment variables.
