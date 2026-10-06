@@ -61,7 +61,8 @@ export default function ProfileForm({ driver }) {
       const saved = await saveDriverProfile(driver?.id, { ...form, name, avatar_url });
       window.location.href = `/driver/${saved.username}`;
     } catch (e) {
-      setError("Couldn't save your profile. Try again.");
+      console.error('Profile save error:', e);
+      setError(`Couldn't save your profile: ${e.message || 'Unknown error'}`);
     } finally {
       setSaving(false);
     }

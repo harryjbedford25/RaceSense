@@ -87,18 +87,22 @@ export async function uploadAvatar(file) {
   const fileName = `${Math.random()}.${fileExt}`;
   const filePath = `${fileName}`;
 
+  console.log('Uploading avatar to:', filePath);
+
   const { error: uploadError } = await supabase.storage
     .from('avatars')
     .upload(filePath, file);
 
   if (uploadError) {
-    throw uploadError;
+    console.error('Avatar upload error:', uploadError);
+    throw new Error(`Avatar upload failed: ${uploadError.message}`);
   }
 
   const { data } = supabase.storage
     .from('avatars')
     .getPublicUrl(filePath);
 
+  console.log('Avatar public URL:', data.publicUrl);
   return data.publicUrl;
 }
 

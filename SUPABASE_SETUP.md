@@ -41,6 +41,8 @@ This guide will help you set up Supabase for the RaceSense website migration.
 
 ## Step 5: Set Up Storage (for avatar uploads)
 
+**IMPORTANT: You must create the 'avatars' bucket for profile images to work**
+
 1. In your Supabase dashboard, go to **Storage**
 2. Click "Create a new bucket"
 3. Name it: `avatars`
@@ -49,6 +51,14 @@ This guide will help you set up Supabase for the RaceSense website migration.
 6. Configure bucket policies:
    - **Public** bucket: Allow read access to everyone
    - **Authenticated** users: Allow upload (if you want users to upload their own avatars)
+
+**RLS Policy for avatars bucket:**
+- Go to the avatars bucket → Policies
+- Add a new policy to allow authenticated users to upload:
+  - Policy name: "Allow authenticated uploads"
+  - Allowed operations: INSERT
+  - Target roles: authenticated
+  - USING expression: `auth.role() = 'authenticated'`
 
 ## Step 6: Configure Environment Variables
 
