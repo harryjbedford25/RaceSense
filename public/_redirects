@@ -1,0 +1,2 @@
+# Redirect www to non-www
+https://www.racesense.info/* https://racesense.info/:splat 301!
