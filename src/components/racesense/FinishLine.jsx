@@ -5,8 +5,7 @@ import Reveal from "@/components/racesense/Reveal";
 
 const FLAG = "/flagImage.jpg";
 
-// Generic Play Store link while in early access — swap for the live RaceSense listing.
-const PLAY_STORE_URL = "https://play.google.com/store/apps";
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.racesense.racesense";
 
 const GRID = [
 { n: "01", label: "INTRO", href: "#hero" },

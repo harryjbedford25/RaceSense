@@ -36,7 +36,7 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
-            <a href="#finish" className="rs-btn rs-btn-fill">
+            <a href="https://play.google.com/store/apps/details?id=com.racesense.racesense" target="_blank" rel="noopener noreferrer" className="rs-btn rs-btn-fill">
               GET THE APP <span aria-hidden>→</span>
             </a>
             <a href="#audio" className="rs-btn rs-btn-line">
