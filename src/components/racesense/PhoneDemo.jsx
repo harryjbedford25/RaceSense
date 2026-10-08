@@ -2,7 +2,7 @@ import { Image } from "@/components/ui/image";
 import CornerTicks from "@/components/racesense/CornerTicks";
 import Reveal from "@/components/racesense/Reveal";
 
-const APP_SHOT = "/theAppImage.webp";
+const APP_SHOT = "/appScreen.jpg";
 
 const STEPS = [
 { n: "01", t: "CONNECT", d: "Pair your Bluetooth headset or plug in." },
